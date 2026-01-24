@@ -1,0 +1,52 @@
+---
+/* src/components/Navbar.astro */
+import navData from "../data/navigation.json";
+
+const { pathname } = Astro.url;
+
+/* Normalize path to handle trailing slashes consistently */
+const activePath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+
+const isActive = (href: string) => {
+  const normalizedHref = href === "/" ? "/" : href.replace(/\/$/, "");
+  return activePath === normalizedHref;
+};
+---
+
+<nav
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-md md:top-6 md:bottom-auto transition-all duration-500"
+>
+  <div
+    class="bg-card/80 backdrop-blur-xl border border-border shadow-lg rounded-full px-2 py-2 flex items-center justify-around md:justify-center md:gap-2"
+  >
+    {
+      navData.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "relative px-5 py-2.5 text-sm font-medium transition-colors duration-300 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            isActive(item.href)
+              ? "text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground",
+          ]}
+        >
+          {/* The Animated Indicator */}
+          {isActive(item.href) && (
+            <span
+              transition:name="nav-indicator"
+              class="absolute inset-0 bg-primary rounded-full -z-10 shadow-sm"
+            />
+          )}
+          <span class="relative z-10">{item.name}</span>
+        </a>
+      ))
+    }
+  </div>
+</nav>
+<!-- 
+<style>
+  /* Ensure smooth transitions for the active background pill */
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+</style> -->
