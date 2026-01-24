@@ -3,7 +3,7 @@
 A high-performance, developer-focused portfolio template built with the Astro web framework and Tailwind CSS. This project is designed to be easily forkable, highly customizable, and SEO-friendly.
 
 ## 🔗 Live Deployment
-You can view the template in action here: [https://syedjamal030.github.io/portfolio](https://syedjamal030.github.io/portfolio)
+You can view the template in action here: [https://syedjamal030.github.io/](https://syedjamal030.github.io/)
 
 ## 🚀 Key Features
 * **Astro Framework:** Leveraging Island Architecture for optimal loading speeds.
