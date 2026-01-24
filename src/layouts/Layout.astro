@@ -2,6 +2,7 @@
 const { title = "Syed Muhammad Jamal Waheed | Portfolio" } = Astro.props;
 
 import { getEntry } from "astro:content";
+import SEO from "../components/SEO.astro";
 
 const contactEntry = await getEntry("about", "contact");
 const contact = contactEntry?.data;
@@ -11,22 +12,12 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta
-      name="description"
-      content="Syed Jamal - Full Stack Developer Portfolio"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://syedjamal030.github.io/" />
-    <meta property="og:title" content={title} />
-    <meta property="twitter:card" content="summary_large_image" />
+    <SEO title={title} />
   </head>
-  <body class="bg-white text-slate-900 antialiased">
-    <nav class="p-6 border-b">
+  <body
+    class="antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300"
+  >
+    <nav class="bg-white/80 dark:bg-slate-950/80 p-6 border-b">
       <div class="max-w-5xl mx-auto flex justify-between items-center">
         <a href="/" class="font-bold text-xl">SJ.</a>
         <div class="space-x-6">
@@ -86,7 +77,5 @@ import "../styles/global.css";
         &copy; {new Date().getFullYear()} Built with Astro
       </div>
     </footer>
-    <!-- <footer class="text-center py-10 border-t text-slate-500">
-    </footer> -->
   </body>
 </html>
