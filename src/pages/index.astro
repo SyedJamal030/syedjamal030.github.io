@@ -1,10 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/Layout.astro";
+import ProjectCard from '../components/ProjectCard.astro';
 import Hero from "../components/Hero.astro";
 
-const allProjects = await getCollection('projects');
+const allProjects = await getCollection("projects");
+console.log("Found projects:", allProjects.length);
 ---
 
 <BaseLayout title="Home | Syed Jamal">
@@ -13,11 +15,7 @@ const allProjects = await getCollection('projects');
   <section class="mt-12">
     <h2 class="text-3xl font-bold mb-6">Featured Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div
-        class="p-8 border-2 border-dashed border-slate-200 rounded-xl text-center text-slate-400"
-      >
-        Project cards coming soon...
-      </div>
+      {allProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
 </BaseLayout>
