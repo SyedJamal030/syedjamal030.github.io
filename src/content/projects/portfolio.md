@@ -1,7 +1,7 @@
 ---
 title: "Open Source Portfolio"
 description: "A professional developer portfolio built with Astro, Tailwind CSS, and GitHub Actions."
-pubDate: 2026-01-24
+pubDate: 2026-01-20
 tags: ["Astro", "Tailwind", "CI/CD"]
 image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec"
 link: "https://github.com/SyedJamal030/SyedJamal030.github.io"
