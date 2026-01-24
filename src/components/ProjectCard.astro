@@ -11,7 +11,7 @@ const modalId = `modal-${project.slug}`;
 ---
 
 <article
-  class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col h-full"
+  class="group bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col h-full"
 >
   <div class="flex-1">
     <div class="flex gap-2 mb-4 flex-wrap">
@@ -80,7 +80,7 @@ const modalId = `modal-${project.slug}`;
     id={modalId}
     class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-0 rounded-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm w-full max-w-2xl border-none shadow-2xl"
   >
-    <div class="p-8 bg-white max-h-[90vh] overflow-y-auto">
+    <div class="p-8 bg-white dark:bg-slate-900 max-h-[90vh] overflow-y-auto">
       <div class="flex justify-between items-start mb-6">
         <div>
           <h2 class="text-3xl font-bold text-slate-900">
@@ -94,7 +94,7 @@ const modalId = `modal-${project.slug}`;
         >
       </div>
 
-      <div class="prose prose-slate max-w-none mb-8">
+      <div class="prose prose-slate dark:prose-invert max-w-none mb-8">
         <Content />
       </div>
 
