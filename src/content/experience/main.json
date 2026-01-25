@@ -1,0 +1,25 @@
+{
+  "entries": [
+    {
+      "company": "Senior Dev Collective",
+      "role": "Lead Frontend Architect",
+      "startDate": "2022",
+      "endDate": "Present",
+      "location": "",
+      "skills": [],
+      "highlights": [
+        "Architected Next.js systems",
+        "Improved performance by 30%"
+      ]
+    },
+    {
+      "company": "Creative Agency",
+      "role": "UI Developer",
+      "startDate": "2019",
+      "location": "",
+      "skills": [],
+      "endDate": "2022",
+      "highlights": ["Bridged design and code", "Built 20+ landing pages"]
+    }
+  ]
+}

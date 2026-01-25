@@ -1,13 +1,13 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 import BaseLayout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
 import ImpactBar from "../components/home/ImpactBar.astro";
 import BentoSkills from "../components/home/BentoSkills.astro";
-import FeaturedProjects from "../components/home/FeaturedProjects.astro";
+import FeaturedProjects from "../components/projects/FeaturedProjects.astro";
 
-const allProjects = await getCollection("projects");
+// const allProjects = await getCollection("projects");
 ---
 
 <BaseLayout title="Home | Syed Jamal">
@@ -17,7 +17,7 @@ const allProjects = await getCollection("projects");
   <FeaturedProjects />
 
   <section class="py-24 bg-card border-t border-border">
-    <div class="container mx-auto px-6 text-center">
+    <div class="lg:container mx-auto px-6 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">
         Ready to drive technical excellence?
       </h2>
@@ -32,12 +32,4 @@ const allProjects = await getCollection("projects");
       </button>
     </div>
   </section>
-  <!-- <Hero />
-
-  <section class="mt-12">
-    <h2 class="text-3xl font-bold mb-6">Featured Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {allProjects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section> -->
 </BaseLayout>

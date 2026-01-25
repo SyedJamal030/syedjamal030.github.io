@@ -1,0 +1,16 @@
+{
+  "siteName": "Senior Frontend Architect",
+  "description": "7+ years of building high-performance, pixel-perfect web applications.",
+  "author": "Your Name",
+  "email": "hello@example.com",
+  "availability": "Available",
+  "socials": [
+    { "platform": "GitHub", "url": "https://github.com/...", "icon": "github" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/...", "icon": "linkedin" },
+    { "platform": "Twitter", "url": "https://twitter.com/...", "icon": "twitter" }
+  ],
+  "seo": {
+    "ogImage": "/og-default.png",
+    "keywords": ["Next.js", "Astro", "TypeScript", "UI/UX", "Frontend Architect"]
+  }
+}

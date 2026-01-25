@@ -1,4 +1,10 @@
 ---
+import { getEntry } from "astro:content";
+import Counter from "./Counter.astro";
+
+const aboutData = await getEntry("about", "main");
+const { data: about } = aboutData ?? {};
+
 const stats = [
   { label: "Years Experience", value: "7+" },
   { label: "Projects Delivered", value: "10+" },
@@ -7,21 +13,28 @@ const stats = [
 ];
 ---
 
-<div class="py-12 border-y border-border/50 bg-secondary/5">
-  <div class="container mx-auto px-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      {
-        stats.map((stat) => (
-          <div class="text-center md:text-left">
-            <p class="text-3xl md:text-4xl font-bold text-secondary">
-              {stat.value}
-            </p>
-            <p class="text-xs uppercase tracking-widest text-muted-foreground mt-1">
-              {stat.label}
-            </p>
-          </div>
-        ))
-      }
+{
+  about?.showImpact && (about.impact ?? []).length > 0 && (
+    <div class="py-12 border-y border-border/50 bg-secondary/5">
+      <div class="lg:container mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {(about.impact ?? []).map((impact) => (
+            <div class="text-center md:text-left">
+              <div class="text-3xl md:text-4xl font-bold text-secondary">
+                <Counter
+                  target={impact.target}
+                  label={impact.label}
+                  suffix={impact.suffix}
+                  prefix={impact.prefix}
+                />
+              </div>
+              <p class="text-xs uppercase tracking-widest text-muted-foreground mt-1">
+                {impact.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  )
+}

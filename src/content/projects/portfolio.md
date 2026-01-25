@@ -1,18 +1,26 @@
 ---
-title: "Open Source Portfolio"
-description: "A professional developer portfolio built with Astro, Tailwind CSS, and GitHub Actions."
+title: "Enterprise SaaS Dashboard"
+description: "A high-performance analytics platform for fintech data visualization."
+category: "Fintech"
+tags: ["Next.js", "TanStack Query", "D3.js", "Web Workers"]
+metrics: "+30% Performance"
 pubDate: 2026-01-20
-tags: ["Astro", "Tailwind", "CI/CD"]
-image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec"
-link: "https://github.com/SyedJamal030/SyedJamal030.github.io"
+featured: true
+order: 1
+thumbnail: "/projects/dashboard-hero.jpg"
+links:
+  - text: "GitHub"
+    url: "https://github.com/yourname/fintech-viz"
+  - text: "Live Demo"
+    url: "https://demo.fintechviz.io"
 ---
 
-# About this project
+### The Challenge
+The client needed to visualize millions of data points in real-time without compromising the 60fps interaction threshold. Traditional React state management was causing significant main-thread lag during rapid data updates.
 
-This is my personal portfolio. I built it to learn how to manage an open-source repository and use modern web frameworks.
+### The Solution
+I architected a solution that offloads heavy SVG calculations to **Web Workers**, ensuring the UI thread remains responsive for user interactions. 
 
-## Features
-
-- **Automated Deployment**: Uses GitHub Actions.
-- **Responsive Design**: Built with Tailwind CSS.
-- **Content Collections**: Managed via Markdown.
+* **Virtualization:** Rendered only visible nodes in the D3 tree.
+* **Custom Hook:** Built a specialized `useWebSocket` hook with built-in throttling.
+* **Result:** Achieved a buttery-smooth experience with 100/100 Lighthouse scores.

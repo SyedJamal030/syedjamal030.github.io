@@ -1,226 +1,160 @@
 ---
-// components/projects/ProjectCard.astro
+import type { CollectionEntry } from 'astro:content';
 interface Props {
-  title: string;
-  description: string;
-  tags: string[];
-  metrics: string; // e.g., "40% faster load"
-  link: string;
-  github?: string;
-}
-
-const { title, description, tags, metrics, link, github } = Astro.props;
----
-
-<div
-  class="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-md"
->
-  <div class="aspect-video bg-muted relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 group-hover:scale-105 transition-transform duration-500"
-    >
-    </div>
-
-    <div
-      class="absolute top-4 right-4 px-3 py-1 bg-secondary/90 text-secondary-foreground text-xs font-bold rounded-full backdrop-blur-md"
-    >
-      {metrics}
-    </div>
-  </div>
-
-  <div class="p-6">
-    <div class="flex gap-2 mb-4 flex-wrap">
-      {
-        tags.map((tag) => (
-          <span class="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
-            {tag}
-          </span>
-        ))
-      }
-    </div>
-
-    <h3
-      class="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
-    >
-      {title}
-    </h3>
-    <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-      {description}
-    </p>
-
-    <div class="flex items-center gap-4">
-      <a
-        href={link}
-        class="text-sm font-bold text-primary hover:underline underline-offset-4"
-      >
-        Live Demo ↗
-      </a>
-      {
-        github && (
-          <a
-            href={github}
-            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Source Code
-          </a>
-        )
-      }
-    </div>
-  </div>
-</div>
-
-<!-- ---
-import type { CollectionEntry } from "astro:content";
-interface Props {
-  project: CollectionEntry<"projects">;
+  project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
-const { title, description, tags, link } = project.data;
 const { Content } = await project.render();
-const modalId = `modal-${project.slug}`;
+const { data, slug } = project;
 ---
 
-<article
-  class="group bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col h-full"
->
-  <div class="flex-1">
-    <div class="flex gap-2 mb-4 flex-wrap">
-      {
-        tags.map((tag) => (
-          <span class="text-[10px] uppercase tracking-wider font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded">
-            {tag}
-          </span>
-        ))
-      }
+<div class="group cursor-pointer">
+  <div 
+    onclick={`window['modal_${slug}'].showModal()`}
+    class="block outline-none"
+  >
+    <div class="relative aspect-video overflow-hidden rounded-lg bg-muted mb-6 border border-border group-hover:border-primary/50 transition-colors">
+      <img 
+        src={data.thumbnail} 
+        alt={data.title} 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+      
+      <div class="absolute top-4 right-4 px-2 py-1 bg-background/90 backdrop-blur-sm border border-border rounded text-[10px] font-bold text-secondary">
+        {data.metrics}
+      </div>
     </div>
 
-    <h3
-      class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors"
-    >
-      {title}
-    </h3>
+    <div class="flex gap-2 mb-3 flex-wrap">
+      {data.tags.map((t) => (
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded border border-border bg-card">
+          {t}
+        </span>
+      ))}
+    </div>
 
-    <p class="mt-3 text-slate-600 leading-relaxed text-sm">
-      {description}
+    <h3 class="text-2xl font-bold group-hover:text-primary transition-colors">
+      {data.title}
+    </h3>
+    <p class="text-muted-foreground mt-2 leading-relaxed line-clamp-2">
+      {data.description}
     </p>
   </div>
 
-  <div class="mt-6 pt-6 border-t border-slate-100">
-    <a
-      target="_blank"
-      href={link || "#"}
-      class="inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-500"
-    >
-      View Source Code
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 ml-1"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-      </svg>
-    </a>
-    <button
-      data-modal-target={modalId}
-      class="inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-500"
-    >
-      Read Case Study
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4 ml-1"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-      </svg>
-    </button>
-  </div>
-  <dialog
-    id={modalId}
-    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-0 rounded-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm w-full max-w-2xl border-none shadow-2xl"
-  >
-    <div class="p-8 bg-white dark:bg-slate-900 max-h-[90vh] overflow-y-auto">
-      <div class="flex justify-between items-start mb-6">
-        <div>
-          <h2 class="text-3xl font-bold text-slate-900">
-            {project.data.title}
-          </h2>
-          <p class="text-slate-500 italic mt-1">{project.data.description}</p>
-        </div>
-        <button
-          data-modal-close
-          class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button
-        >
+  <dialog id={`modal_${slug}`} class="backdrop:bg-background/80 backdrop:backdrop-blur-sm p-0 bg-transparent max-w-4xl w-full rounded-2xl outline-none border-none overflow-hidden">
+    <div class="bg-card border border-border shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div class="sticky top-0 z-50 flex justify-end p-4 bg-gradient-to-b from-card to-transparent">
+        <button onclick={`window['modal_${slug}'].close()`} class="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-white transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
 
-      <div class="prose prose-slate dark:prose-invert max-w-none mb-8">
-        <Content />
-      </div>
+      <div class="px-8 pb-16 sm:px-12">
+        <header class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-primary font-mono text-xs font-bold uppercase tracking-widest">{data.category}</span>
+            <span class="text-secondary font-bold text-xs">{data.metrics}</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black mb-6">{data.title}</h2>
+          
+          <div class="flex flex-wrap gap-4 mt-8">
+            {data.links?.map(link => (
+              <a href={link.url} target="_blank" class="flex items-center gap-2 px-5 py-2.5 bg-primary/10 text-primary border border-primary/20 rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                {link.text}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            ))}
+          </div>
+        </header>
 
-      <div class="flex gap-4 border-t pt-6">
-        {
-          project.data.link && (
-            <a
-              href={project.data.link}
-              target="_blank"
-              class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold"
-            >
-              Live Link
-            </a>
-          )
-        }
+        <article class="prose prose-invert prose-primary max-w-none">
+          <Content />
+        </article>
       </div>
     </div>
   </dialog>
-</article>
+</div>
 
-<script>
-  function setupModals() {
-    const openButtons = document.querySelectorAll("[data-modal-target]");
-    const closeButtons = document.querySelectorAll("[data-modal-close]");
 
-    openButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const modalId = btn.getAttribute("data-modal-target");
-        if (modalId) {
-          const modal = document.getElementById(modalId) as HTMLDialogElement;
-          modal?.showModal();
-          document.documentElement.classList.add("overflow-hidden");
-        }
-      });
-    });
+<!-- ---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
 
-    closeButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const modal = (e.target as HTMLElement).closest("dialog");
-        modal?.close();
-        document.documentElement.classList.remove("overflow-hidden");
-      });
-    });
+const { project } = Astro.props;
+const { Content } = await project.render();
+const { data, slug } = project;
+---
 
-    // Close on clicking outside the modal
-    document.querySelectorAll("dialog").forEach((modal) => {
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.close();
-          document.documentElement.classList.remove("overflow-hidden");
-        }
-      });
-    });
-  }
+<div class="project-item group" data-category={data.category}>
+  <button 
+    onclick={`window['modal_${slug}'].showModal()`}
+    class="w-full text-left bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
+  >
+    <div class="aspect-video bg-muted overflow-hidden relative">
+      <div class="absolute top-4 left-4 z-10 px-3 py-1 bg-background/90 backdrop-blur-md rounded-full text-[10px] font-bold text-secondary border border-secondary/20">
+        {data.metrics}
+      </div>
+      <img src={data.thumbnail} alt={data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+    </div>
+    
+    <div class="p-6">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-primary">{data.category}</span>
+      <h3 class="text-xl font-bold mt-1 mb-2 group-hover:text-primary transition-colors">{data.title}</h3>
+      <p class="text-sm text-muted-foreground line-clamp-2">{data.description}</p>
+    </div>
+  </button>
 
-  // Run on initial load
-  setupModals();
-</script> -->
+  <dialog id={`modal_${slug}`} class="backdrop:bg-background/80 backdrop:backdrop-blur-md p-0 bg-transparent max-w-5xl w-full rounded-3xl outline-none overflow-hidden border-none">
+    <div class="bg-card border border-border max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl relative">
+      
+      <div class="sticky top-0 z-50 flex justify-end p-4 bg-gradient-to-b from-card to-transparent">
+        <button onclick={`window['modal_${slug}'].close()`} class="p-2 bg-background/50 border border-border rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="px-6 pb-16 md:px-16">
+        <header class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-primary font-mono text-xs uppercase tracking-[0.2em] font-bold">{data.category}</span>
+            <span class="w-1 h-1 rounded-full bg-border"></span>
+            <span class="text-secondary font-bold text-xs">{data.metrics}</span>
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">{data.title}</h2>
+          
+          <div class="flex flex-wrap gap-2 mb-10">
+            {data.tags.map(tag => (
+              <span class="px-3 py-1 bg-muted border border-border rounded-md text-[10px] font-mono font-semibold uppercase">{tag}</span>
+            ))}
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          <div class="lg:col-span-2 prose prose-invert prose-primary max-w-none">
+            <Content />
+          </div>
+
+          <aside class="space-y-10">
+            {data.links && (
+              <div>
+                <h4 class="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4">Project Assets</h4>
+                <div class="flex flex-col gap-3">
+                  {data.links.map(link => (
+                    <a href={link.url} target="_blank" class="flex items-center justify-between p-4 rounded-xl border border-border bg-muted/30 hover:border-primary/50 transition-all group">
+                      <span class="text-sm font-bold">{link.text}</span>
+                      <svg class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</div> -->

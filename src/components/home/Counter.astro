@@ -1,0 +1,76 @@
+---
+interface Props {
+  target: number; // e.g., -30 or 150
+  label: string;
+  suffix?: string; // e.g., "%" or "ms"
+  prefix?: string; // e.g., "$"
+}
+
+const { target, suffix = "", prefix = "" } = Astro.props;
+
+// Determine the sign to display
+const sign = target < 0 ? "-" : "";
+const absoluteTarget = Math.abs(target);
+---
+
+<div
+  class="counter-container flex items-baseline group-hover:scale-105 transition-transform duration-500"
+>
+  {prefix && <span class="mr-1 self-center opacity-80">{prefix}</span>}
+  {sign && <span class="sign">{sign}</span>}
+  <span class="count-up" data-target={absoluteTarget}>0</span>
+  {suffix && <span class="ml-1 self-center opacity-80">{suffix}</span>}
+</div>
+
+<script>
+  function initCounter() {
+    const animateCount = (el: Element, target: number) => {
+      const duration = 2000;
+      const startTime = performance.now();
+
+      const update = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(ease * target);
+
+        el.textContent = String(currentCount);
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = String(target);
+        }
+      };
+      requestAnimationFrame(update);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target.querySelector(
+              ".count-up",
+            ) as HTMLDivElement;
+            if (counter) {
+              const target = parseInt(counter.dataset.target ?? "0");
+              animateCount(counter, target);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    document
+      .querySelectorAll(".counter-container")
+      .forEach((c) => observer.observe(c));
+  }
+
+  // Run on initial load
+  initCounter();
+
+  // Run every time the page content changes during navigation
+  document.addEventListener("astro:after-swap", initCounter);
+</script>

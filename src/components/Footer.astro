@@ -1,32 +1,110 @@
-<footer class="py-12 border-t border-border bg-card/50">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-      <div>
-        <p class="font-bold text-lg mb-2">Build with purpose.</p>
-        <p class="text-sm text-muted-foreground max-w-xs">
-          Senior Frontend Developer bridging the gap between design and
-          engineering.
+---
+import { getEntry } from "astro:content";
+const settingsData = await getEntry("settings", "main");
+const { data: settings } = settingsData ?? {};
+
+const currentYear = new Date().getFullYear();
+
+const footerNav = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
+];
+---
+
+<footer class="border-t border-border/50 bg-card/30 mt-24">
+  <div class="lg:container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <a
+          href="/"
+          class="text-xl font-bold tracking-tighter hover:text-primary transition-colors"
+        >
+          {settings?.author}
+        </a>
+        <p class="mt-4 text-muted-foreground max-w-sm leading-relaxed">
+          Architecting high-performance digital experiences with design empathy
+          and engineering precision.
         </p>
       </div>
 
-      <div class="flex gap-6">
-        <a
-          href="https://github.com/your-username"
-          class="hover:text-primary transition-colors">GitHub</a
+      <div>
+        <h4
+          class="font-bold mb-4 text-sm uppercase tracking-widest text-foreground"
         >
-        <a
-          href="https://linkedin.com/in/your-username"
-          class="hover:text-primary transition-colors">LinkedIn</a
-        >
-        <a
-          href="mailto:your@email.com"
-          class="hover:text-secondary transition-colors">Contact</a
-        >
+          Navigation
+        </h4>
+        <ul class="space-y-2">
+          {
+            footerNav.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
-      <p class="text-xs font-mono text-muted-foreground">
-        &copy; {new Date().getFullYear()} — Built with Astro & Tailwind 4
+      <div>
+        <h4
+          class="font-bold mb-4 text-sm uppercase tracking-widest text-foreground"
+        >
+          Connect
+        </h4>
+        <div class="inline-flex flex-col gap-2">
+          <a
+            href={`mailto:${settings?.email}`}
+            class="text-sm text-muted-foreground hover:text-secondary transition-colors"
+          >
+            {settings?.email}
+          </a>
+          <div class="flex gap-4">
+            {
+              settings?.socials.map((social) => (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label={social.platform}
+                >
+                  {/* You can use a library like astro-icon or raw SVGs here */}
+                  <span class="text-xs font-medium">{social.platform}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p
+        class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground"
+      >
+        © {currentYear} — Handcrafted with Astro
       </p>
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+          ></span>
+        </span>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest text-emerald-500"
+        >
+          Open for opportunities
+        </span>
+      </div>
     </div>
   </div>
 </footer>
