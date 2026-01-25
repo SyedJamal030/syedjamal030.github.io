@@ -1,5 +1,5 @@
 ---
-const { title = "Syed Muhammad Jamal Waheed | Portfolio", className = "" } = Astro.props;
+const { className = "" } = Astro.props;
 
 import { ClientRouter } from "astro:transitions";
 
@@ -15,12 +15,9 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO title={title} />
+    <SEO />
     <ClientRouter />
     <script is:inline>
-      /** * Utility to get the current preferred theme.
-       * Checks: 1. LocalStorage, 2. System Preference
-       */
       const getThemePreference = () => {
         if (
           typeof localStorage !== "undefined" &&
@@ -33,9 +30,6 @@ import "../styles/global.css";
           : "light";
       };
 
-      /** * Applies the theme to the document.
-       * We set both the CSS class and the color-scheme style property.
-       */
       const applyTheme = (theme) => {
         const root = document.documentElement;
         if (theme === "dark") {
@@ -43,38 +37,24 @@ import "../styles/global.css";
         } else {
           root.classList.remove("dark");
         }
-        // Ensures browser UI (scrollbars, inputs) matches the theme
         root.style.colorScheme = theme;
       };
 
-      /** * Main function to sync the UI with the saved or system preference.
-       */
       const setTheme = () => {
         const theme = getThemePreference();
         applyTheme(theme);
       };
 
-      // 1. Run immediately to prevent Flash of Unstyled Content (FOUC)
       setTheme();
-
-      // 2. Handle Astro View Transitions:
-      // Re-run the logic after the page content swaps
       document.addEventListener("astro:after-swap", setTheme);
 
-      // 3. Listen for System Theme Changes (OS settings or DevTools 'Show Renderer')
       window
         .matchMedia("(prefers-color-scheme: dark)")
         .addEventListener("change", (e) => {
-          // Logic: If the user has NOT manually set a preference, follow the system.
-          // If you want DevTools to ALWAYS override everything, remove the 'if' check.
           const newTheme = e.matches ? "dark" : "light";
           applyTheme(newTheme);
         });
 
-      /** * Global observer (Optional):
-       * If you have a separate toggle component, it will update localStorage.
-       * This observer ensures if localStorage changes in one tab, other tabs update.
-       */
       window.addEventListener("storage", (e) => {
         if (e.key === "theme") {
           setTheme();

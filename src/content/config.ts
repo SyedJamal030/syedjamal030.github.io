@@ -1,15 +1,14 @@
 import { defineCollection, z } from "astro:content";
 
-// Multiple files (.md)
 const projects = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string(), // Short snippet for the card
+    description: z.string(),
     category: z.string(),
-    metrics: z.string(), // e.g., "+30% Performance"
-    tags: z.array(z.string()), // Tech stack tags
-    pubDate: z.coerce.date(), // Date for sorting
+    metrics: z.string(),
+    tags: z.array(z.string()),
+    pubDate: z.coerce.date(),
     featured: z.boolean().default(false),
     order: z.number().default(99),
     thumbnail: z.string(),
@@ -20,7 +19,6 @@ const projects = defineCollection({
   }),
 });
 
-// Single Manifest (.json)
 const experience = defineCollection({
   type: "data",
   schema: z.object({
@@ -38,7 +36,6 @@ const experience = defineCollection({
   }),
 });
 
-// Single Manifest (.json)
 const skills = defineCollection({
   type: "data",
   schema: z.object({
@@ -57,7 +54,6 @@ const skills = defineCollection({
   }),
 });
 
-// Single Manifest (.json)
 const education = defineCollection({
   type: "data",
   schema: z.object({
@@ -79,7 +75,6 @@ const about = defineCollection({
     subheading: z.string(),
     bio: z.array(z.string()),
     cvLink: z.string(),
-    // Philosophy Toggle & Content
     showHighlights: z.boolean().default(true),
     highlightsTitle: z.string().optional(),
     highlights: z
@@ -109,19 +104,20 @@ const settings = defineCollection({
   type: "data",
   schema: z.object({
     siteName: z.string(),
-    description: z.string(), // Default SEO Description
+    description: z.string(),
     author: z.string(),
     email: z.string(),
+    lookingFor: z.string(),
     availability: z.enum(["Available", "Busy", "Limited"]),
     socials: z.array(
       z.object({
-        platform: z.string(), // e.g., "GitHub"
+        platform: z.string(),
         url: z.string().url(),
-        icon: z.string(), // We will use this to match SVG icons
+        icon: z.string(),
       }),
     ),
     seo: z.object({
-      ogImage: z.string(), // Default image for social sharing
+      ogImage: z.string(),
       keywords: z.array(z.string()),
     }),
   }),
@@ -130,14 +126,12 @@ const settings = defineCollection({
 const hero = defineCollection({
   type: 'data',
   schema: z.object({
-    headingMain: z.string(), // "Architecting"
-    headingAccent: z.string(), // "Scalable"
-    headingSuffix: z.string(), // "Web Experiences"
+    headingMain: z.string(),
+    headingAccent: z.string(),
+    headingSuffix: z.string(),
     description: z.string(),
-    primaryCTA: z.string(), // "View Projects"
-    secondaryCTA: z.string(), // "Read Case Studies"
-    stackTitle: z.string(), // "Trusted Tech Stack"
-    stack: z.array(z.string()), // ["Next.js", "TypeScript", ...]
+    stackTitle: z.string(),
+    stack: z.array(z.string()),
   })
 });
 

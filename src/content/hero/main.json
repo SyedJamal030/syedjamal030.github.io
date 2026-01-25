@@ -3,8 +3,6 @@
   "headingAccent": "Scalable",
   "headingSuffix": "Web Experiences",
   "description": "Senior Frontend Developer specializing in React & Next.js. I bridge the gap between complex engineering and pixel-perfect design, delivering +30% performance gains by default.",
-  "primaryCTA": "View Projects",
-  "secondaryCTA": "Read Case Studies",
   "stackTitle": "Trusted Tech Stack",
   "stack": ["Next.js", "TypeScript", "Redux", "Node.js", "Tailwind"]
 }

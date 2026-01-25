@@ -1,14 +1,13 @@
 ---
 interface Props {
-  target: number; // e.g., -30 or 150
+  target: number;
   label: string;
-  suffix?: string; // e.g., "%" or "ms"
-  prefix?: string; // e.g., "$"
+  suffix?: string;
+  prefix?: string;
 }
 
 const { target, suffix = "", prefix = "" } = Astro.props;
 
-// Determine the sign to display
 const sign = target < 0 ? "-" : "";
 const absoluteTarget = Math.abs(target);
 ---
@@ -68,9 +67,6 @@ const absoluteTarget = Math.abs(target);
       .forEach((c) => observer.observe(c));
   }
 
-  // Run on initial load
   initCounter();
-
-  // Run every time the page content changes during navigation
   document.addEventListener("astro:after-swap", initCounter);
 </script>

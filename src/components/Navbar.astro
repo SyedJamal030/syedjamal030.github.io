@@ -104,7 +104,6 @@ const navData = [
 </nav>
 
 <style>
-  /* Added a specialized hover for the Nav Menu on Desktop */
   #nav-menu {
     transition:
       transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -112,7 +111,6 @@ const navData = [
       border-color 0.3s;
   }
 
-  /* The Glassmorphism effect for the dropdown in mobile */
   @media (max-width: 767px) {
     #nav-menu[astro-menu-open] {
       animation: menu-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -139,12 +137,10 @@ const navData = [
 
     if (!toggle || !menu || !nav) return;
 
-    // Scroll Logic: Add blur/border on scroll
     window.addEventListener("scroll", () => {
       const isScrolled = window.scrollY > 20;
 
       if (isScrolled) {
-        // Parent Nav becomes the container
         nav.classList.add(
           "bg-background/80",
           "backdrop-blur-md",
@@ -152,10 +148,8 @@ const navData = [
           "lg:py-4",
         );
         nav.classList.remove("lg:py-6", "border-transparent");
-        // Inner Menu becomes ghost
         menu.setAttribute("data-scrolled", "true");
       } else {
-        // Parent Nav becomes transparent
         nav.classList.remove(
           "bg-background/80",
           "backdrop-blur-md",
@@ -163,7 +157,6 @@ const navData = [
           "lg:py-4",
         );
         nav.classList.add("lg:py-6", "border-transparent");
-        // Inner Menu becomes pill
         menu.setAttribute("data-scrolled", "false");
       }
     });

@@ -12,19 +12,16 @@ const { data: about } = aboutData ?? {};
 <Layout title="About | Senior Frontend Architect" className="pt-20">
   <main class="py-20 lg:py-32">
     <div class="lg:container mx-auto px-6">
-      {/* Bio Section */}
       <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
         <div class="relative">
           <div
             class="aspect-square rounded-2xl bg-muted overflow-hidden border border-border"
           >
-            {/* Replace with your photo */}
             <div
               class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/10"
             >
             </div>
           </div>
-          {/* Accent decoration for the "Designer" side of you */}
           <div
             class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -z-10"
           >
@@ -44,17 +41,6 @@ const { data: about } = aboutData ?? {};
               </p>
             ))
           }
-          <!-- <p class="text-lg text-muted-foreground leading-relaxed mb-6">
-            With 7 years in the game, I&apos;ve learned that great software
-            isn't just about clean code (though I'm obsessed with that). It's
-            about building solutions that people actually enjoy using.
-          </p>
-          <p class="text-muted-foreground leading-relaxed mb-8">
-            My background in Graphic Design and Content Writing allows me to
-            speak the language of design and marketing teams fluently. I don't
-            just "receive tickets"; I contribute to the product vision, ensuring
-            every pixel and every line of code serves the end-user.
-          </p> -->
           <div class="flex gap-4">
             <a
               href={about?.cvLink}
@@ -65,7 +51,6 @@ const { data: about } = aboutData ?? {};
         </div>
       </div>
 
-      {/* Philosophy Section */}
       {
         about?.showHighlights && (
           <section class="mb-32">
@@ -98,111 +83,6 @@ const { data: about } = aboutData ?? {};
       </section>
 
       <Education />
-      {/* Timeline Section */}
-      <!-- <section>
-        <h2 class="text-3xl font-bold text-center mb-16">My Journey</h2>
-        <Timeline />
-      </section> -->
     </div>
   </main>
 </Layout>
-
-<!-- ---
-import { getEntry } from "astro:content";
-
-import BaseLayout from "../layouts/Layout.astro";
-
-const bio = await getEntry("about", "bio");
-const skillsEntry = await getEntry("about", "skills");
-const learningEntry = await getEntry("about", "learning");
-const experience = await getEntry("about", "experience");
-const education = await getEntry("about", "education");
-
-const BioContent = bio ? (await bio.render()).Content : null;
-const skills = skillsEntry?.data.skills || [];
-const learning = learningEntry?.data.learning || [];
----
-
-<BaseLayout title="About Me | Syed Jamal">
-  <div class="max-w-3xl mx-auto space-y-12">
-    <section class="prose prose-slate dark:prose-invert max-w-none">
-      <h1 class="text-4xl font-bold text-slate-900">About Me</h1>
-      {
-        BioContent ? (
-          <BioContent />
-        ) : (
-          <p class="text-slate-400 italic">
-            Bio content is currently unavailable.
-          </p>
-        )
-      }
-    </section>
-
-    {
-      skills.length > 0 && (
-        <section>
-          <h2 class="text-2xl font-bold text-slate-900 mb-6">Skills</h2>
-          <div class="grid grid-cols-2 gap-4">
-            {skills.map((skill) => (
-              <div class="p-4 border border-slate-200 rounded-xl">
-                <p class="font-bold text-slate-800">{skill.name}</p>
-                <p
-                  class={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full w-fit mt-1 ${skill.color}`}
-                >
-                  {skill.category}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )
-    }
-
-    {
-      learning.length > 0 && (
-        <section class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
-          <h2 class="text-xl font-bold text-slate-900 mb-4">
-            Currently Learning
-          </h2>
-          <div class="flex flex-wrap gap-2">
-            {learning.map((item) => (
-              <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-sm">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
-      )
-    }
-
-    {
-      [experience, education].map(
-        (section) =>
-          section && (
-            <section>
-              <h2 class="text-2xl font-bold text-slate-900 mb-8">
-                {section.data.title}
-              </h2>
-              <div class="space-y-8 border-l-2 border-slate-200 ml-4">
-                {section.data.entries?.map((item) => (
-                  <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-white border-2 border-indigo-600" />
-                    <p class="text-sm font-bold text-indigo-600 uppercase tracking-wider">
-                      {item.duration}
-                    </p>
-                    <h3 class="text-xl font-bold text-slate-800">
-                      {item.title}
-                    </h3>
-                    <p class="text-slate-600 font-medium">{item.subTitle}</p>
-                    {item.description && (
-                      <p class="text-slate-500 mt-2">{item.description}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-          ),
-      )
-    }
-  </div>
-</BaseLayout> -->
