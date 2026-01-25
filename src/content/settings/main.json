@@ -1,0 +1,17 @@
+{
+  "siteName": "Syed Muhammad Jamal Waheed | Portfolio",
+  "description": "7+ years of building high-performance, pixel-perfect web applications.",
+  "author": "Syed Jamal",
+  "lookingFor": "Currently seeking a Senior React/Next.js role where speed and quality coexist.",
+  "email": "hello@example.com",
+  "availability": "Available",
+  "socials": [
+    { "platform": "GitHub", "url": "https://github.com/...", "icon": "github" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/...", "icon": "linkedin" },
+    { "platform": "Twitter", "url": "https://twitter.com/...", "icon": "twitter" }
+  ],
+  "seo": {
+    "ogImage": "/og-default.png",
+    "keywords": ["Next.js", "Astro", "TypeScript", "UI/UX", "Frontend Architect"]
+  }
+}

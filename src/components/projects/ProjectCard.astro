@@ -1,0 +1,201 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+const { data, slug } = project;
+---
+
+<div class="group">
+  <div class="block">
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg bg-muted mb-6 border border-border group-hover:border-primary/50 transition-colors"
+    >
+      <img
+        src={data.thumbnail}
+        alt={data.title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+        onclick={`window['modal_${slug}'].showModal()`}
+      >
+      </div>
+
+      <div
+        class="absolute top-4 right-4 px-2 py-1 bg-background/90 backdrop-blur-sm border border-border rounded text-[10px] font-bold text-secondary"
+      >
+        {data.metrics}
+      </div>
+    </div>
+
+    <div class="flex gap-2 mb-3 flex-wrap">
+      {
+        data.tags.map((t) => (
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded border border-border bg-card">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+
+    <h3
+      class="text-2xl font-bold group-hover:text-primary transition-colors group-hover:underline cursor-pointer"
+      onclick={`window['modal_${slug}'].showModal()`}
+    >
+      {data.title}
+    </h3>
+    <p class="text-muted-foreground mt-2 leading-relaxed line-clamp-2">
+      {data.description}
+    </p>
+  </div>
+
+  <dialog
+    id={`modal_${slug}`}
+    class="m-auto backdrop:bg-background/80 backdrop:backdrop-blur-sm p-4 bg-transparent max-w-4xl w-full outline-none border-none overflow-visible transition-all duration-300 ease-out"
+    onclick={`event.target === this && this.close()`}
+  >
+    <div
+      class="modal-content bg-card border border-border shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar rounded-2xl relative scale-95 opacity-0 transition-all duration-300 ease-out"
+    >
+      <div
+        class="sticky top-0 z-50 flex justify-end p-4 bg-gradient-to-b from-card to-transparent"
+      >
+        <button
+          onclick={`window['modal_${slug}'].close()`}
+          class="p-2 bg-background border border-border rounded-full hover:bg-primary hover:text-white transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><line x1="18" y1="6" x2="6" y2="18"></line><line
+              x1="6"
+              y1="6"
+              x2="18"
+              y2="18"></line></svg
+          >
+        </button>
+      </div>
+
+      <div class="px-8 pb-16 sm:px-12">
+        <header class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="text-primary font-mono text-xs font-bold uppercase tracking-widest"
+              >{data.category}</span
+            >
+            <span class="text-secondary font-bold text-xs">{data.metrics}</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black mb-6">{data.title}</h2>
+
+          <div class="flex flex-wrap gap-4 mt-8">
+            {
+              data.links?.map((link) => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  class="flex items-center gap-2 px-5 py-2.5 bg-primary/10 text-primary border border-primary/20 rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-all"
+                >
+                  {link.text}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <>
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </>
+                  </svg>
+                </a>
+              ))
+            }
+          </div>
+        </header>
+
+        <article class="prose prose-invert prose-primary max-w-none">
+          <Content />
+        </article>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<style is:global>
+  dialog[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  dialog::backdrop {
+    opacity: 0;
+    transition: opacity 0.3s allow-discrete;
+  }
+  dialog[open]::backdrop {
+    opacity: 1;
+  }
+
+  dialog[open] .modal-content {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      opacity: 0;
+    }
+    dialog[open] .modal-content {
+      opacity: 0;
+      scale: 0.95;
+    }
+  }
+
+  dialog {
+    transition:
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete,
+      opacity 0.3s;
+  }
+</style>
+
+<script>
+  const dialogs = document.querySelectorAll("dialog");
+
+  dialogs.forEach((dialog) => {
+    dialog.addEventListener("close", () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    });
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "open") {
+          if (dialog.open) {
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+          } else {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+          }
+        }
+      });
+    });
+
+    observer.observe(dialog, { attributes: true });
+  });
+</script>

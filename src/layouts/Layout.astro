@@ -1,81 +1,77 @@
 ---
-const { title = "Syed Muhammad Jamal Waheed | Portfolio" } = Astro.props;
+const { className = "" } = Astro.props;
 
-import { getEntry } from "astro:content";
+import { ClientRouter } from "astro:transitions";
+
 import SEO from "../components/SEO.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from '../components/Footer.astro';
 
-const contactEntry = await getEntry("about", "contact");
-const contact = contactEntry?.data;
+import ThemeToggle from "../components/ThemeToggle.astro";
+
 import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO title={title} />
+    <SEO />
+    <ClientRouter />
+    <script is:inline>
+      const getThemePreference = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const applyTheme = (theme) => {
+        const root = document.documentElement;
+        if (theme === "dark") {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+        root.style.colorScheme = theme;
+      };
+
+      const setTheme = () => {
+        const theme = getThemePreference();
+        applyTheme(theme);
+      };
+
+      setTheme();
+      document.addEventListener("astro:after-swap", setTheme);
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          const newTheme = e.matches ? "dark" : "light";
+          applyTheme(newTheme);
+        });
+
+      window.addEventListener("storage", (e) => {
+        if (e.key === "theme") {
+          setTheme();
+        }
+      });
+    </script>
   </head>
   <body
-    class="antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300"
+    class="antialiased min-h-screen flex flex-col"
   >
-    <nav class="bg-white/80 dark:bg-slate-950/80 p-6 border-b">
-      <div class="max-w-5xl mx-auto flex justify-between items-center">
-        <a href="/" class="font-bold text-xl">SJ.</a>
-        <div class="space-x-6">
-          <a href="/" class="hover:text-indigo-600 transition-colors">Home</a>
-          <a href="/projects" class="hover:text-indigo-600">Projects</a>
-          <a href="/about" class="hover:text-indigo-600">About</a>
-        </div>
+    <main>
+      <Navbar />
+      <div class={className}>
+        <slot />
       </div>
-    </nav>
-
-    <main class="max-w-5xl mx-auto px-6 py-12">
-      <slot />
+      <Footer />
     </main>
-
-    <footer class="border-t border-slate-200 bg-white mt-20">
-      <div
-        class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6"
-      >
-        <div>
-          <p class="font-bold text-lg">Syed Jamal</p>
-          <p class="text-slate-500 text-sm">Full-Stack Developer</p>
-        </div>
-
-        <div class="flex gap-6">
-          {
-            contact?.email && (
-              <a href={`mailto:${contact.email}`} class="hover:text-indigo-600">
-                Email
-              </a>
-            )
-          }
-          {
-            contact?.github && (
-              <a
-                href={contact.github}
-                target="_blank"
-                class="hover:text-indigo-600"
-              >
-                GitHub
-              </a>
-            )
-          }
-          {
-            contact?.linkedin && (
-              <a
-                href={contact.linkedin}
-                target="_blank"
-                class="hover:text-indigo-600"
-              >
-                LinkedIn
-              </a>
-            )
-          }
-        </div>
-      </div>
-      <div class="text-center py-10 border-t border-gray-300 text-slate-500">
-        &copy; {new Date().getFullYear()} Built with Astro
-      </div>
-    </footer>
+    <ThemeToggle />
   </body>
 </html>

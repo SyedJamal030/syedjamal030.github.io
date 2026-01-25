@@ -1,0 +1,41 @@
+---
+import { getEntry } from "astro:content";
+const educationData = await getEntry("education", "main");
+---
+
+<section class="mt-24">
+  <div class="flex items-center gap-4 mb-12">
+    <h2 class="text-3xl font-bold tracking-tight">Education</h2>
+    <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {
+      educationData?.data.entries.map((edu) => (
+        <div class="group p-8 rounded-2xl border border-border bg-card/50 hover:border-primary/40 transition-all duration-300 relative overflow-hidden">
+          {/* Subtle background decoration */}
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest border border-secondary/20">
+                {edu.period}
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+              {edu.degree}
+            </h3>
+            <p class="text-primary/80 font-medium text-sm mt-1">{edu.school}</p>
+
+            {edu.description && (
+              <p class="mt-4 text-sm text-muted-foreground leading-relaxed">
+                {edu.description}
+              </p>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

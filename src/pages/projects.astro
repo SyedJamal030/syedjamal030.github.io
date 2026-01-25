@@ -1,20 +1,64 @@
 ---
-import BaseLayout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/projects/ProjectCard.astro';
 
-const projects = await getCollection('projects', ({ data }) => !data.draft);
-const sortedProjects = projects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+const categories = ["All", ...new Set(sortedProjects.map(p => p.data.category))];
 ---
 
-<BaseLayout title="My Projects | Syed Jamal">
-  <h1 class="text-4xl font-bold text-slate-900 mb-4">All Projects</h1>
-  <p class="text-lg text-slate-600 mb-12">
-    A collection of my work, experiments, and open-source contributions.
-  </p>
+<Layout title="Projects | Engineering Portfolio">
+  <main class="py-32 container mx-auto px-6">
+    <div class="max-w-4xl mb-20">
+      <h1 class="text-6xl font-black tracking-tighter mb-6 italic">Selected <span class="text-primary">Works</span></h1>
+      <p class="text-xl text-muted-foreground">Detailed case studies focusing on performance, scalability, and technical architecture.</p>
+    </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {sortedProjects.map((project) => <ProjectCard project={project} />)}
-  </div>
-</BaseLayout>
+    <div class="flex flex-wrap gap-4 mb-12" id="filter-bar">
+      {categories.map((cat) => (
+        <button 
+          data-filter={cat}
+          class="filter-btn px-6 py-2 rounded-full border border-border bg-card text-xs font-bold uppercase tracking-widest transition-all hover:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:border-primary"
+          aria-pressed={cat === "All" ? "true" : "false"}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+      {sortedProjects.map(project => <ProjectCard project={project} />)}
+    </div>
+  </main>
+</Layout>
+
+<script>
+
+  const initProjects = () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+  
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+  
+        filterBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+  
+        projectItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filter === "All" || category === filter) {
+            (item as HTMLElement).style.display = 'block';
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  initProjects();
+  document.addEventListener("astro:after-swap", initProjects);
+</script>

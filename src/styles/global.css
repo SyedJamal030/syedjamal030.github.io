@@ -1,37 +1,141 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
 html {
   scroll-behavior: smooth;
 }
 
-.overflow-hidden {
-  overflow: hidden;
+:root {
+  /* --- Core Foundation --- */
+  --background: oklch(0.99 0.01 240);
+  --foreground: oklch(0.15 0.02 240);
+  
+  /* Primary: Electric Indigo (#4F46E5) */
+  --primary: oklch(0.55 0.20 263.27);
+  --primary-foreground: oklch(0.98 0.01 240);
+  
+  /* Secondary/Success: Cyber Mint (#10B981) */
+  --secondary: oklch(0.70 0.19 162.5);
+  --secondary-foreground: oklch(0.15 0.05 160);
+
+  /* Surfaces */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 240);
+  
+  /* Semantic States */
+  --info: oklch(0.65 0.15 220);
+  --success: oklch(0.70 0.19 162.5);
+  --warning: oklch(0.85 0.15 85);
+  --destructive: oklch(0.60 0.20 25);
+  
+  /* UI Elements */
+  --muted: oklch(0.95 0.01 240);
+  --muted-foreground: oklch(0.45 0.02 240);
+  --accent: oklch(0.92 0.04 162.5); 
+  --accent-foreground: oklch(0.40 0.15 160);
+  --border: oklch(0.90 0.02 240);
+  --input: oklch(0.90 0.02 240);
+  --ring: oklch(0.55 0.20 263.27);
+
+  /* Charts - Balanced for Data Viz */
+  --chart-1: var(--primary);
+  --chart-2: var(--secondary);
+  --chart-3: oklch(0.75 0.12 200);
+  --chart-4: oklch(0.80 0.15 60);
+  --chart-5: oklch(0.65 0.18 320);
+
+  /* Typography */
+  --font-sans: "Geist", ui-sans-serif, system-ui;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --radius: 0.6rem;
+
+  /* Elevation (Light) */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
 }
 
-/* Animation for the modal appearing */
-dialog[open] {
-  animation: modal-appear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+.dark {
+  /* --- Dark Foundation (Obsidian) --- */
+  --background: oklch(0.18 0.03 260);
+  --foreground: oklch(0.95 0.01 240);
+  
+  --primary: oklch(0.60 0.22 263.27);
+  --primary-foreground: oklch(1 0 0);
+  
+  --secondary: oklch(0.75 0.20 162.5);
+  --secondary-foreground: oklch(0.10 0.05 160);
+
+  --card: oklch(0.22 0.03 260);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.22 0.03 260);
+  --popover-foreground: oklch(0.95 0.01 240);
+  
+  /* Semantic (Dark Adjusted) */
+  --info: oklch(0.70 0.12 220);
+  --success: oklch(0.75 0.20 162.5);
+  --warning: oklch(0.80 0.15 85);
+  --destructive: oklch(0.55 0.18 25);
+
+  --muted: oklch(0.28 0.03 260);
+  --muted-foreground: oklch(0.70 0.02 240);
+  --accent: oklch(0.30 0.08 162.5 / 0.2);
+  --accent-foreground: oklch(0.75 0.20 162.5);
+
+  --border: oklch(0.30 0.03 260);
+  --input: oklch(0.30 0.03 260);
+  --ring: oklch(0.75 0.20 162.5);
+
+  /* Elevation (Dark) - Using Glow rather than just shadow */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.3);
+  --shadow: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 20px 25px -5px oklch(0 0 0 / 0.5);
 }
 
-@keyframes modal-appear {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -48%) scale(0.96);
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.2rem);
+  --radius-sm: calc(var(--radius) - 0.2rem);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-lg: var(--shadow-lg);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
   }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* Smooth fade for the background blur */
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-
-dialog[open]::backdrop {
-  opacity: 1;
 }

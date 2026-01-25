@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "school": "University of Technology",
+      "degree": "B.S. in Computer Science",
+      "period": "2013 — 2017",
+      "description": "Graduated with honors. Specialization in Web Technologies and Visual Communication."
+    },
+    {
+      "school": "Design Institute",
+      "degree": "Professional Certification in UI/UX",
+      "period": "2018",
+      "description": "Advanced course on user psychology and interface design patterns."
+    }
+  ]
+}

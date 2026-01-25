@@ -1,0 +1,30 @@
+{
+  "categories": [
+    {
+      "title": "Core Architecture",
+      "description": "TypeScript-heavy Next.js apps.",
+      "size": "large",
+      "layoutType": "standard",
+      "color": "primary",
+      "skills": ["React", "Next.js", "TypeScript"]
+    },
+    {
+      "title": "Performance",
+      "description": "Average Load Time",
+      "size": "tall",
+      "layoutType": "metric",
+      "suffix": "%",
+      "prefix": "",
+      "color": "secondary",
+      "skills": ["-30"]
+    },
+    {
+      "title": "Design Empathy",
+      "description": "UI/UX principles.",
+      "size": "small",
+      "layoutType": "compact",
+      "color": "secondary",
+      "skills": ["Figma", "Tailwind"]
+    }
+  ]
+}
