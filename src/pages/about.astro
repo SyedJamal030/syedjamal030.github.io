@@ -1,4 +1,100 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Timeline from "../components/about/Timeline.astro";
+---
+
+<Layout title="About | Senior Frontend Architect" className="pt-20">
+  <main class="py-20 lg:py-32">
+    <div class="container mx-auto px-6">
+      {/* Bio Section */}
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div class="relative">
+          <div
+            class="aspect-square rounded-2xl bg-muted overflow-hidden border border-border"
+          >
+            {/* Replace with your photo */}
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/10"
+            >
+            </div>
+          </div>
+          {/* Accent decoration for the "Designer" side of you */}
+          <div
+            class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -z-10"
+          >
+          </div>
+        </div>
+
+        <div>
+          <h1 class="text-4xl font-bold mb-6">
+            High speed. High quality. <br /><span class="text-primary"
+              >No compromises.</span>
+          </h1>
+          <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+            With 7 years in the game, I&apos;ve learned that great software isn't
+            just about clean code (though I'm obsessed with that). It's about
+            building solutions that people actually enjoy using.
+          </p>
+          <p class="text-muted-foreground leading-relaxed mb-8">
+            My background in Graphic Design and Content Writing allows me to
+            speak the language of design and marketing teams fluently. I don't
+            just "receive tickets"; I contribute to the product vision, ensuring
+            every pixel and every line of code serves the end-user.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="/resume.pdf"
+              class="px-6 py-3 bg-foreground text-background rounded-lg font-bold hover:bg-primary hover:text-white transition-all"
+              >Download CV</a
+            >
+          </div>
+        </div>
+      </div>
+
+      {/* Philosophy Section */}
+      <section class="mb-32">
+        <h2 class="text-3xl font-bold text-center mb-16">
+          The Senior Philosophy
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {
+            [
+              {
+                title: "Architecture",
+                desc: "Building scalable foundations with TypeScript and Next.js that teams can actually maintain.",
+              },
+              {
+                title: "Performance",
+                desc: "Obsessing over Core Web Vitals to deliver that 30% average boost in load times.",
+              },
+              {
+                title: "Empathy",
+                desc: "Using my design background to bridge the gap between Figma and the Browser.",
+              },
+            ].map((item) => (
+              <div class="p-8 border border-border rounded-2xl bg-card hover:border-secondary/50 transition-colors">
+                <h3 class="text-xl font-bold mb-4 text-secondary">
+                  {item.title}
+                </h3>
+                <p class="text-muted-foreground text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section>
+        <h2 class="text-3xl font-bold text-center mb-16">My Journey</h2>
+        <Timeline />
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<!-- ---
 import { getEntry } from "astro:content";
 
 import BaseLayout from "../layouts/Layout.astro";
@@ -96,4 +192,4 @@ const learning = learningEntry?.data.learning || [];
       )
     }
   </div>
-</BaseLayout>
+</BaseLayout> -->

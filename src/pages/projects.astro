@@ -1,6 +1,67 @@
 ---
+// src/pages/projects.astro
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
+
+const allProjects = [
+  {
+    title: "Performance-First Dashboard",
+    description:
+      "Architected a real-time data visualization tool for an international fintech client using Next.js 15 and TanStack Query.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    metrics: "+45% Performance",
+    link: "#",
+    github: "#",
+  },
+  {
+    title: "E-commerce Design System",
+    description:
+      "Built a multi-brand headless commerce frontend with a specialized component library, ensuring pixel-perfect consistency.",
+    tags: ["React", "Storybook", "Framer Motion"],
+    metrics: "100% UI Consistency",
+    link: "#",
+  },
+  // Add more projects here to reach your 10+ count
+];
+---
+
+<Layout title="Projects | Senior Frontend Developer" className="pt-20">
+  <main class="py-20">
+    <div class="container mx-auto px-6">
+      {/* Header */}
+      <div class="max-w-2xl mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Proven Solutions</h1>
+        <p class="text-muted-foreground text-lg">
+          A collection of architected applications focused on scalability, clean
+          code, and user-centric design principles.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allProjects.map((project) => <ProjectCard {...project} />)}
+      </div>
+
+      {/* Experience Summary Note */}
+      <div
+        class="mt-24 p-8 rounded-2xl bg-muted/50 border border-border text-center"
+      >
+        <h2 class="text-xl font-bold mb-2">
+          Looking for technical leadership?
+        </h2>
+        <p class="text-muted-foreground max-w-2xl mx-auto">
+          Beyond these projects, I have managed full project lifecycles and led
+          remote teams within development collectives. Let's discuss how I can
+          lead your next initiative.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<!-- ---
 import BaseLayout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection('projects', ({ data }) => !data.draft);
@@ -17,4 +78,4 @@ const sortedProjects = projects.sort((a, b) => b.data.pubDate.valueOf() - a.data
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     {sortedProjects.map((project) => <ProjectCard project={project} />)}
   </div>
-</BaseLayout>
+</BaseLayout> -->

@@ -1,52 +1,199 @@
 ---
-/* src/components/Navbar.astro */
-import navData from "../data/navigation.json";
+import { Image } from "astro:assets";
+import myLogo from "../assets/logo.png";
 
 const { pathname } = Astro.url;
-
-/* Normalize path to handle trailing slashes consistently */
 const activePath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
 const isActive = (href: string) => {
   const normalizedHref = href === "/" ? "/" : href.replace(/\/$/, "");
   return activePath === normalizedHref;
 };
+
+const navData = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
+];
 ---
 
 <nav
-  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-md md:top-6 md:bottom-auto transition-all duration-500"
+  id="main-nav"
+  class="fixed w-full lg:px-4 lg:py-6 md:px-3 md:py-4 px-2 py-2 top-0 z-50 transition-all duration-300 border-b border-transparent"
 >
-  <div
-    class="bg-card/80 backdrop-blur-xl border border-border shadow-lg rounded-full px-2 py-2 flex items-center justify-around md:justify-center md:gap-2"
-  >
-    {
-      navData.map((item) => (
-        <a
-          href={item.href}
-          class:list={[
-            "relative px-5 py-2.5 text-sm font-medium transition-colors duration-300 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            isActive(item.href)
-              ? "text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground",
-          ]}
+  <div class="lg:container mx-auto flex items-center justify-between">
+    <a
+      href="/"
+      class="md:w-14 md:h-14 w-10 h-10 hover:opacity-80 transition-opacity"
+    >
+      <Image
+        src={myLogo}
+        alt="Logo"
+        width={200}
+        height={200}
+        loading="eager"
+        class="max-w-full h-auto object-contain dark:invert transition-all"
+      />
+    </a>
+
+    <div class="flex items-center gap-3">
+      <!--  -->
+      <button
+        id="menu-toggle"
+        class="md:hidden relative flex size-9 items-center justify-center hover:border border-border hover:bg-card/40 backdrop-blur-md hover:shadow-sm transition-all duration-300 hover:border-secondary/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.1)] active:scale-90 group rounded-full"
+        aria-label="Toggle Menu"
+      >
+        <div
+          class="flex flex-col group-[[astro-menu-toggled]]:gap-1.5 gap-1 w-5 items-end justify-center"
         >
-          {/* The Animated Indicator */}
-          {isActive(item.href) && (
-            <span
-              transition:name="nav-indicator"
-              class="absolute inset-0 bg-primary rounded-full -z-10 shadow-sm"
-            />
-          )}
-          <span class="relative z-10">{item.name}</span>
-        </a>
-      ))
-    }
+          <span
+            class="block h-0.5 w-full bg-foreground rounded-full transition-all duration-300 group-[[astro-menu-toggled]]:rotate-45 group-[[astro-menu-toggled]]:translate-y-2 group-[[astro-menu-toggled]]:bg-primary"
+          ></span>
+          <span
+            class="block h-0.5 w-full bg-foreground rounded-full transition-all duration-300 group-[[astro-menu-toggled]]:opacity-0"
+          ></span>
+          <span
+            class="block h-0.5 w-1/2 group-[[astro-menu-toggled]]:w-full bg-foreground rounded-full transition-all duration-300 group-[[astro-menu-toggled]]:-rotate-45 group-[[astro-menu-toggled]]:-translate-y-2 group-[[astro-menu-toggled]]:bg-primary"
+          ></span>
+        </div>
+      </button>
+
+      <div
+        id="nav-menu"
+        data-scrolled="false"
+        class:list={[
+          /* Mobile Styles (Always a Card) */
+          "absolute top-full right-2 flex-col min-w-[200px] p-2 gap-2",
+          "bg-card/95 backdrop-blur-xl border border-border shadow-xl rounded-2xl",
+
+          /* Desktop Styles (Default: Pill) */
+          "md:static md:flex md:flex-row md:items-center md:gap-1.5 md:p-1.5 md:rounded-full",
+          "md:bg-card/80 md:border md:border-border md:shadow-lg md:backdrop-blur-md",
+
+          /* Desktop Styles (On Scroll: Ghost) */
+          "md:data-[scrolled=true]:bg-transparent md:data-[scrolled=true]:border-transparent md:data-[scrolled=true]:shadow-none md:data-[scrolled=true]:backdrop-blur-0",
+
+          /* Transition & Toggle */
+          "transition-all duration-500 [&[astro-menu-open]]:flex hidden",
+        ]}
+      >
+        {
+          navData.map((item) => (
+            <a
+              astro-menu-item
+              href={item.href}
+              class:list={[
+                "relative px-6 py-2 text-sm font-semibold transition-all duration-300 rounded-full w-full md:w-auto text-center",
+                isActive(item.href)
+                  ? "text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-primary/5",
+              ]}
+            >
+              {isActive(item.href) && (
+                <div
+                  transition:name="nav-active-pill"
+                  class="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/20 -z-10"
+                />
+              )}
+              <span class="relative z-10">{item.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </nav>
-<!-- 
+
 <style>
-  /* Ensure smooth transitions for the active background pill */
-  a {
-    -webkit-tap-highlight-color: transparent;
+  /* Added a specialized hover for the Nav Menu on Desktop */
+  #nav-menu {
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.3s,
+      border-color 0.3s;
   }
-</style> -->
+
+  /* The Glassmorphism effect for the dropdown in mobile */
+  @media (max-width: 767px) {
+    #nav-menu[astro-menu-open] {
+      animation: menu-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  }
+
+  @keyframes menu-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>
+
+<script>
+  const initNav = () => {
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("nav-menu");
+    const nav = document.getElementById("main-nav");
+
+    if (!toggle || !menu || !nav) return;
+
+    // Scroll Logic: Add blur/border on scroll
+    window.addEventListener("scroll", () => {
+      const isScrolled = window.scrollY > 20;
+
+      if (isScrolled) {
+        // Parent Nav becomes the container
+        nav.classList.add(
+          "bg-background/80",
+          "backdrop-blur-md",
+          "border-border/50",
+          "lg:py-4",
+        );
+        nav.classList.remove("lg:py-6", "border-transparent");
+        // Inner Menu becomes ghost
+        menu.setAttribute("data-scrolled", "true");
+      } else {
+        // Parent Nav becomes transparent
+        nav.classList.remove(
+          "bg-background/80",
+          "backdrop-blur-md",
+          "border-border/50",
+          "lg:py-4",
+        );
+        nav.classList.add("lg:py-6", "border-transparent");
+        // Inner Menu becomes pill
+        menu.setAttribute("data-scrolled", "false");
+      }
+    });
+
+    const openMenu = () => {
+      toggle.setAttribute("astro-menu-toggled", "");
+      menu.setAttribute("astro-menu-open", "");
+    };
+
+    const closeMenu = () => {
+      toggle.removeAttribute("astro-menu-toggled");
+      menu.removeAttribute("astro-menu-open");
+    };
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.hasAttribute("astro-menu-open") ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        !toggle.contains(e.target as Node) &&
+        !menu.contains(e.target as Node)
+      ) {
+        closeMenu();
+      }
+    });
+  };
+
+  initNav();
+  document.addEventListener("astro:after-swap", initNav);
+</script>

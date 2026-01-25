@@ -1,4 +1,75 @@
 ---
+// components/projects/ProjectCard.astro
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  metrics: string; // e.g., "40% faster load"
+  link: string;
+  github?: string;
+}
+
+const { title, description, tags, metrics, link, github } = Astro.props;
+---
+
+<div
+  class="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-md"
+>
+  <div class="aspect-video bg-muted relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 group-hover:scale-105 transition-transform duration-500"
+    >
+    </div>
+
+    <div
+      class="absolute top-4 right-4 px-3 py-1 bg-secondary/90 text-secondary-foreground text-xs font-bold rounded-full backdrop-blur-md"
+    >
+      {metrics}
+    </div>
+  </div>
+
+  <div class="p-6">
+    <div class="flex gap-2 mb-4 flex-wrap">
+      {
+        tags.map((tag) => (
+          <span class="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+
+    <h3
+      class="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
+    >
+      {title}
+    </h3>
+    <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+      {description}
+    </p>
+
+    <div class="flex items-center gap-4">
+      <a
+        href={link}
+        class="text-sm font-bold text-primary hover:underline underline-offset-4"
+      >
+        Live Demo ↗
+      </a>
+      {
+        github && (
+          <a
+            href={github}
+            class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Source Code
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<!-- ---
 import type { CollectionEntry } from "astro:content";
 interface Props {
   project: CollectionEntry<"projects">;
@@ -152,4 +223,4 @@ const modalId = `modal-${project.slug}`;
 
   // Run on initial load
   setupModals();
-</script>
+</script> -->

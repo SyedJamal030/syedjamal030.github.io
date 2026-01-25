@@ -1,0 +1,52 @@
+---
+const experiences = [
+  {
+    year: "2022 — Present",
+    role: "Senior Frontend Developer & Tech Lead",
+    company: "Remote Dev Collective",
+    desc: "Architecting Next.js ecosystems and leading full-lifecycle deployments for international clients.",
+  },
+  {
+    year: "2019 — 2022",
+    role: "Frontend Engineer (React/Next.js Focus)",
+    company: "Software Practice",
+    desc: "Delivered 10+ diverse projects with a focus on code quality and 30% performance gains.",
+  },
+  {
+    year: "2017 — 2019",
+    role: "UI/UX Developer",
+    company: "Creative Agency",
+    desc: "Bridging the gap between graphic design and functional frontend code.",
+  },
+];
+---
+
+<div
+  class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:via-border before:to-transparent"
+>
+  {
+    experiences.map((exp) => (
+      <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+        {/* Icon/Dot */}
+        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-primary bg-background text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+          <div class="w-2 h-2 rounded-full bg-current" />
+        </div>
+        {/* Content Card */}
+        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-border bg-card shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-1">
+            <time class="font-mono text-xs font-bold text-secondary uppercase tracking-widest">
+              {exp.year}
+            </time>
+            <span class="text-xs font-semibold text-muted-foreground">
+              {exp.company}
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-foreground">{exp.role}</h3>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+            {exp.desc}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>
