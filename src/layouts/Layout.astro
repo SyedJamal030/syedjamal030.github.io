@@ -1,5 +1,11 @@
 ---
-const { className = "" } = Astro.props;
+interface Props {
+  title?: string;
+  className?: string;
+  description?: string;
+}
+
+const { title, className = "", description } = Astro.props;
 
 import { ClientRouter } from "astro:transitions";
 
@@ -15,7 +21,7 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO />
+    <SEO title={title} description={description} />
     <ClientRouter />
     <script is:inline>
       const getThemePreference = () => {
