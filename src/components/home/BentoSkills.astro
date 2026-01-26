@@ -5,7 +5,7 @@ const skillsManifest = await getEntry("skills", "main");
 
 const gridMap = {
   large: "md:col-span-7 lg:col-span-6 md:row-span-2", // Takes up roughly half the width
-  tall: "md:col-span-5 lg:col-span-3 md:row-span-2",  // Sleek vertical card
+  tall: "md:col-span-5 lg:col-span-3 md:row-span-2", // Sleek vertical card
   small: "md:col-span-5 lg:col-span-3 md:row-span-1", // Fits next to the tall card
 };
 
@@ -33,7 +33,11 @@ const colorMap = {
             {cat.layoutType === "metric" ? (
               <div class="flex flex-col items-center justify-center h-full text-center group">
                 <div class="text-6xl font-black text-secondary mb-2 group-hover:scale-110 transition-transform">
-                  <Counter target={Number(cat.skills[0])} label={cat.description} suffix={cat.suffix} prefix={cat.prefix} />
+                  <Counter
+                    target={cat.metricValue ?? 0}
+                    suffix={cat.suffix}
+                    prefix={cat.prefix}
+                  />
                 </div>
                 <p class="text-xs font-bold uppercase tracking-widest">
                   {cat.description}
