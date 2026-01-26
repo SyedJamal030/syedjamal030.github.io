@@ -21,10 +21,13 @@ const categories = [
 >
   <main class="py-20 lg:py-32 container mx-auto px-6">
     <div class="max-w-4xl mb-20">
-      <h1 class="text-6xl font-black tracking-tighter mb-6 italic">
-        Selected <span class="text-primary">Works</span>
+      <h1 class="text-4xl md:text-6xl italic tracking-tight mb-6 font-black">
+        Selected <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+          >Works</span
+        >
       </h1>
-      <p class="text-xl text-muted-foreground">
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">
         Detailed case studies focusing on performance, scalability, and
         technical architecture.
       </p>
@@ -48,29 +51,43 @@ const categories = [
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       id="projects-grid"
     >
-      {sortedProjects.map((project) => <ProjectCard project={project} />)}
+      {
+        sortedProjects.map((project) => (
+          <div class="project-item" data-category={project.data.category}>
+            <ProjectCard project={project} />
+          </div>
+        ))
+      }
     </div>
   </main>
 </Layout>
 
 <script>
   const initProjects = () => {
-    const filterBtns = document.querySelectorAll(".filter-btn");
+    const filterBtns = document.querySelectorAll("[data-filter]");
     const projectItems = document.querySelectorAll(".project-item");
+
+    if (!filterBtns.length) return;
 
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter");
+        // Use btn.dataset.filter for cleaner access
+        const filter = (btn as HTMLElement).dataset.filter;
 
+        // Update UI state
         filterBtns.forEach((b) => b.setAttribute("aria-pressed", "false"));
         btn.setAttribute("aria-pressed", "true");
 
         projectItems.forEach((item) => {
-          const category = item.getAttribute("data-category");
+          const projectItem = item as HTMLElement;
+          const category = projectItem.dataset.category;
+
           if (filter === "All" || category === filter) {
-            (item as HTMLElement).style.display = "block";
+            projectItem.style.display = "block";
+            projectItem.classList.add("animate-fade-in");
           } else {
-            (item as HTMLElement).style.display = "none";
+            projectItem.style.display = "none";
+            projectItem.classList.remove("animate-fade-in");
           }
         });
       });
@@ -78,5 +95,5 @@ const categories = [
   };
 
   initProjects();
-  document.addEventListener("astro:after-swap", initProjects);
+  document.addEventListener("astro:page-load", initProjects);
 </script>

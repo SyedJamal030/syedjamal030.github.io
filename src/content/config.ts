@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 const projects = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -12,10 +12,14 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     order: z.number().default(99),
     thumbnail: z.string(),
-    links: z.array(z.object({
-      text: z.string(),
-      url: z.string().url()
-    })).optional(),
+    links: z
+      .array(
+        z.object({
+          text: z.string(),
+          url: z.string().url(),
+        }),
+      )
+      .optional(),
   }),
 });
 
@@ -49,7 +53,7 @@ const skills = defineCollection({
         skills: z.array(z.string()),
         size: z.enum(["large", "tall", "small"]),
         layoutType: z.enum(["standard", "metric", "compact"]),
-        metricValue: z.number().optional()
+        metricValue: z.number().optional(),
       }),
     ),
   }),
@@ -126,7 +130,7 @@ const settings = defineCollection({
 });
 
 const hero = defineCollection({
-  type: 'data',
+  type: "data",
   schema: z.object({
     headingMain: z.string(),
     headingAccent: z.string(),
@@ -134,12 +138,26 @@ const hero = defineCollection({
     description: z.string(),
     stackTitle: z.string(),
     stack: z.array(z.string()),
-  })
+  }),
+});
+
+const cases = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    project: z.string(),
+    narrativeIntro: z.string(),
+    insights: z.array(z.string()),
+    leadReflectionTitle: z.string(),
+    leadReflectionBody: z.string(),
+    colorTheme: z.enum(['primary', 'secondary', 'info']).default('primary'),
+  }),
 });
 
 export const collections = {
   projects,
   experience,
+  cases,
   skills,
   education,
   about,
