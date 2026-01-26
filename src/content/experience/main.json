@@ -1,25 +1,55 @@
 {
   "entries": [
     {
-      "company": "Senior Dev Collective",
-      "role": "Lead Frontend Architect",
-      "startDate": "2022",
+      "company": "Independent Software Practice",
+      "role": "Senior Frontend Developer",
+      "location": "Remote",
+      "startDate": "June 2018",
       "endDate": "Present",
-      "location": "",
-      "skills": [],
       "highlights": [
-        "Architected Next.js systems",
-        "Improved performance by 30%"
+        "Architected over 10 high-performance web applications using React, Next.js, and TypeScript for international clients.",
+        "Delivered an average 30% reduction in page load times through advanced bundle optimization and clean architecture.",
+        "Managed the full project lifecycle, from initial technical scoping and Figma translation to final production deployment.",
+        "Led and mentored distributed teams of developers and QA engineers while maintaining a 100% project success rate."
+      ],
+      "skills": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Performance Optimization",
+        "Technical Leadership"
       ]
     },
     {
-      "company": "Creative Agency",
-      "role": "UI Developer",
-      "startDate": "2019",
-      "location": "",
-      "skills": [],
-      "endDate": "2022",
-      "highlights": ["Bridged design and code", "Built 20+ landing pages"]
+      "company": "Komorebi Technologies & GulzarSoft",
+      "role": "Frontend Developer (Contract)",
+      "location": "Rawalpindi & Gujrat, Pakistan",
+      "startDate": "Oct 2020",
+      "endDate": "May 2021",
+      "highlights": [
+        "Developed responsive components using React.js and PHP, ensuring high performance across various browser environments.",
+        "Redesigned core UI modules for high-traffic platforms, resulting in a 20% increase in user engagement.",
+        "Participated in sprint planning and SDLC phases alongside senior architects to define technical requirements."
+      ],
+      "skills": ["React.js", "PHP", "UI Redesign", "Responsive Design"]
+    },
+    {
+      "company": "Upwork",
+      "role": "Content Writer & Graphic Designer",
+      "location": "Remote",
+      "startDate": "Aug 2018",
+      "endDate": "Oct 2020",
+      "highlights": [
+        "Established a foundation in visual communication by creating professional graphics and layouts using Adobe Creative Suite.",
+        "Translated complex technical concepts into clear narratives, honing the documentation skills used in my engineering career.",
+        "Managed client expectations and project scopes independently, building strong consultation and stakeholder management skills."
+      ],
+      "skills": [
+        "Figma",
+        "Adobe Photoshop",
+        "Technical Writing",
+        "Visual Design"
+      ]
     }
   ]
 }

@@ -49,6 +49,7 @@ const skills = defineCollection({
         skills: z.array(z.string()),
         size: z.enum(["large", "tall", "small"]),
         layoutType: z.enum(["standard", "metric", "compact"]),
+        metricValue: z.number().optional()
       }),
     ),
   }),

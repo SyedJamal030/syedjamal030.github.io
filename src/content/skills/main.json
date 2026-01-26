@@ -1,30 +1,48 @@
 {
   "categories": [
     {
-      "title": "Core Architecture",
-      "description": "TypeScript-heavy Next.js apps.",
-      "size": "large",
-      "layoutType": "standard",
+      "title": "Core Engineering",
+      "description": "Deep-core specialization in modern frontend ecosystems.",
       "color": "primary",
-      "skills": ["React", "Next.js", "TypeScript"]
+      "skills": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "Redux Toolkit"
+      ],
+      "size": "large",
+      "layoutType": "standard"
     },
     {
-      "title": "Performance",
-      "description": "Average Load Time",
+      "title": "UI Architecture",
+      "description": "Building pixel-perfect and scalable design systems.",
+      "color": "info",
+      "skills": [
+        "TailwindCSS",
+        "Material UI",
+        "ShadCn",
+        "Figma",
+        "Responsive Design"
+      ],
       "size": "tall",
-      "layoutType": "metric",
-      "suffix": "%",
-      "prefix": "",
-      "color": "secondary",
-      "skills": ["-30"]
+      "layoutType": "compact"
     },
     {
-      "title": "Design Empathy",
-      "description": "UI/UX principles.",
-      "size": "small",
-      "layoutType": "compact",
+      "title": "Performance Mastery",
+      "description": "Average speed boost delivered across projects.",
+      "prefix": "+",
+      "suffix": "%",
       "color": "secondary",
-      "skills": ["Figma", "Tailwind"]
+      "skills": [
+        "Core Web Vitals",
+        "Bundle Optimization",
+        "Code Splitting",
+        "SEO Optimization"
+      ],
+      "size": "small",
+      "layoutType": "metric",
+      "metricValue": 30
     }
   ]
 }
