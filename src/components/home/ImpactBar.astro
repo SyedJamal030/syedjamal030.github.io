@@ -19,7 +19,7 @@ const stats = [
       <div class="lg:container mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           {(about.impact ?? []).map((impact) => (
-            <div class="text-center md:text-left">
+            <div>
               <div class="text-3xl md:text-4xl font-bold text-secondary">
                 <Counter
                   target={impact.target}

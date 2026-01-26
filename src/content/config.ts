@@ -108,6 +108,7 @@ const settings = defineCollection({
     author: z.string(),
     email: z.string(),
     lookingFor: z.string(),
+    oneLiner: z.string(),
     availability: z.enum(["Available", "Busy", "Limited"]),
     socials: z.array(
       z.object({
