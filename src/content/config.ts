@@ -47,13 +47,7 @@ const skills = defineCollection({
       z.object({
         title: z.string(),
         description: z.string(),
-        suffix: z.string().optional().default(""),
-        prefix: z.string().optional().default(""),
-        color: z.enum(["primary", "secondary", "info"]),
         skills: z.array(z.string()),
-        size: z.enum(["large", "tall", "small"]),
-        layoutType: z.enum(["standard", "metric", "compact"]),
-        metricValue: z.number().optional(),
       }),
     ),
   }),

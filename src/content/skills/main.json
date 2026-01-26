@@ -3,21 +3,17 @@
     {
       "title": "Core Engineering",
       "description": "Scalable web architecture with a focus on type-safety and state management.",
-      "color": "primary",
       "skills": [
         "React",
         "Next.js",
         "TypeScript",
         "Redux Toolkit",
         "JavaScript"
-      ],
-      "size": "large",
-      "layoutType": "standard"
+      ]
     },
     {
       "title": "UI & Design Systems",
       "description": "Pixel-perfect implementation using modern frameworks and design systems.",
-      "color": "secondary",
       "skills": [
         "CSS / SASS",
         "Tailwind",
@@ -25,14 +21,11 @@
         "ShadCn",
         "Mui",
         "Shopify Polaris"
-      ],
-      "size": "tall",
-      "layoutType": "compact"
+      ]
     },
     {
       "title": "Optimization",
       "description": "Specializing in high-performance rendering and SEO-driven architecture.",
-      "color": "info",
       "skills": [
         "SSR / SSG",
         "Image Optimization",
@@ -40,15 +33,12 @@
         "Lazy Loading",
         "Lighthouse",
         "Code Splitting"
-      ],
-      "size": "tall",
-      "layoutType": "compact"
+      ]
     },
     
     {
       "title": "Ecosystem",
       "description": "Extending web expertise into desktop apps and backend integration.",
-      "color": "primary",
       "skills": [
         "Electron.js",
         "Git",
@@ -57,9 +47,7 @@
         "Figma",
         "Adobe Suite",
         "Agile"
-      ],
-      "size": "small",
-      "layoutType": "compact"
+      ]
     }
   ]
 }
