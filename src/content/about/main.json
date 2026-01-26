@@ -1,24 +1,29 @@
-{  
+{
   "heading": "Engineering with a Product Mindset",
   "subheading": "Based in Pakistan, working with the world.",
   "bio": [
-    "I have spent the last 7 years navigating the full lifecycle of web development. Starting as a multi-stack freelancer, I embraced my 'multipotentialite' nature (combining technical engineering with roots in Graphic Design and Content Writing).",
-    "This diverse background gives me a unique empathy for the end-user. I don't just write functional code; I deliver solutions that are intuitive and easily maintainable, often acting as the bridge between engineering, design, and marketing teams.",
-    "Today, I focus on building scalable web architectures using React and Next.js, ensuring every pixel is intentional and every interaction is optimized for performance."
+    "I have spent the last 7 years navigating the full lifecycle of web development, evolving from a versatile freelancer into a specialized Senior Frontend Engineer.",
+    "My approach is rooted in ownership. Having managed my own practice and led distributed teams, I understand that a high-performance UI is only as good as the business logic and architecture supporting it.",
+    "Today, I focus on building scalable web systems using React and Next.js, acting as the technical bridge between client vision, design integrity, and production-ready code."
   ],
-  "cvLink": "/path-to-your-cv.pdf",
+  "cvLink": "/Syed-Jamal-Senior-Frontend-CV.pdf",
   "showHighlights": true,
   "highlightsTitle": "Why Work With Me",
   "highlights": [
     {
-      "title": "High-Growth Adaptability",
-      "description": "Proven ability to hit a stride quickly and deliver dependable, high-quality results even when requirements are evolving or incomplete.",
-      "icon": "zap"
+      "title": "Design-Led Engineering",
+      "description": "A 'multipotentialite' background in Graphic Design and Content Writing allows me to bridge the gap between aesthetics and code with true UI/UX empathy.",
+      "icon": "palette"
     },
     {
-      "title": "Design-Led Engineering",
-      "description": "My background in Graphic Design ensures that 'Pixel-Perfect' isn't just a buzzword, it is a standard I maintain in every build.",
-      "icon": "palette"
+      "title": "Strategic Communication",
+      "description": "Expertise in managing international stakeholders and translating complex technical roadmap into clear, actionable business outcomes.",
+      "icon": "message-square"
+    },
+    {
+      "title": "High-Growth Adaptability",
+      "description": "Proven ability to hit a stride quickly and deliver dependable results even when project requirements are evolving or incomplete.",
+      "icon": "zap"
     }
   ],
   "showImpact": true,
