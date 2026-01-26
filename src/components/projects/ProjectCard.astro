@@ -131,7 +131,7 @@ const { data, slug } = project;
           class="prose dark:prose-invert
           prose-h1:font-bold prose-h1:text-xl
           prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
-          prose-headings:underline"
+          prose-headings:underline max-w-none"
         >
           <Content />
         </article>
@@ -179,28 +179,32 @@ const { data, slug } = project;
 </style>
 
 <script>
-  const dialogs = document.querySelectorAll("dialog");
-
-  dialogs.forEach((dialog) => {
-    dialog.addEventListener("close", () => {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-    });
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "open") {
-          if (dialog.open) {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-          } else {
-            document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
-          }
-        }
+  const initDialogConfig = () => {
+    const dialogs = document.querySelectorAll("dialog");
+    dialogs.forEach((dialog) => {
+      dialog.addEventListener("close", () => {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
       });
-    });
 
-    observer.observe(dialog, { attributes: true });
-  });
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === "open") {
+            if (dialog.open) {
+              document.body.style.overflow = "hidden";
+              document.documentElement.style.overflow = "hidden";
+            } else {
+              document.body.style.overflow = "";
+              document.documentElement.style.overflow = "";
+            }
+          }
+        });
+      });
+
+      observer.observe(dialog, { attributes: true });
+    });
+  };
+
+  initDialogConfig();
+  document.addEventListener("astro:page-load", initDialogConfig);
 </script>

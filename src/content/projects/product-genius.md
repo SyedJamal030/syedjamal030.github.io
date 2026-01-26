@@ -1,6 +1,6 @@
 ---
 title: "Product Genius AI"
-description: "Architected the frontend and UI evolution for an AI-driven Shopify merchant platform, transforming complex data into intuitive, mobile-ready dashboards."
+description: "Architected the frontend and UI evolution for an AI-driven Shopify merchant platform, transforming complex Interaction data into intuitive, mobile-ready dashboards."
 category: "SaaS / AI"
 metrics: "100% responsive mobile-version delivery"
 tags: ["React", "TypeScript", "Polaris", "FastAPI"]
@@ -13,9 +13,10 @@ links:
     url: "https://apps.shopify.com/product-genius-ai"
 ---
 
-Product Genius AI brings a TikTok style scrolling experience to Shopify. I led the frontend maintenance and UI evolution, focusing on transforming complex AI training data into accessible merchant dashboards.
+Product Genius AI leverages a TikTok style scrolling experience for Shopify. I led the frontend architecture and UI evolution, focusing on the visualization of massive AI training datasets for merchant end-users.
 
 **Key Technical Contributions:**
-* **Mobile-First Architecture:** Navigated the complexity of data-heavy dashboards to implement a fully responsive mobile version, significantly improving merchant accessibility.
-* **API Integration:** Bridged the frontend with a FastAPI backend to visualize real-time analytics like content views and click-through rates.
-* **Design Synchronization:** Collaborated closely with the design team to ensure a premium, conversion-driven user experience using Shopify’s Polaris system.
+
+- **UX Engineering:** Successfully navigated the technical hurdles of rendering data-heavy dashboards on small screens, delivering a fully responsive mobile version.
+- **Real-Time Data Visualization:** Engineered the integration between the React frontend and FastAPI backend to provide live analytics for content engagement and conversion metrics.
+- **Design System Stewardship:** Collaborated with design teams to ensure a premium merchant experience while adhering to Shopify’s Polaris design constraints.
