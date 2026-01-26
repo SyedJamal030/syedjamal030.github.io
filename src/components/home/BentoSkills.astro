@@ -6,7 +6,7 @@ const skillsManifest = await getEntry("skills", "main");
 const gridMap = {
   large: "md:col-span-7 lg:col-span-6 md:row-span-2", // Takes up roughly half the width
   tall: "md:col-span-5 lg:col-span-3 md:row-span-2", // Sleek vertical card
-  small: "md:col-span-5 lg:col-span-3 md:row-span-1", // Fits next to the tall card
+  small: "md:col-span-6 lg:col-span-3 md:row-span-1", // Fits next to the tall card
 };
 
 const colorMap = {
@@ -18,7 +18,8 @@ const colorMap = {
 
 <section class="py-24">
   <div class="lg:container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[200px]">
+    <h2 class="text-3xl font-bold mb-12">The Skillset</h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[220px]">
       {
         skillsManifest?.data.categories.map((cat) => (
           <div

@@ -28,7 +28,7 @@ const { data: settings } = settingsData ?? {};
         </p>
       )}
       <a
-        href={`mailto:${settings?.email}`}
+        href={settings?.contactMeLink}
         class="px-10 py-4 bg-primary text-primary-foreground rounded-md font-bold hover:shadow-xl transition-all"
       >
         Get in Touch

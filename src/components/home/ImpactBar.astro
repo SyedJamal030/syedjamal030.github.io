@@ -5,12 +5,6 @@ import Counter from "./Counter.astro";
 const aboutData = await getEntry("about", "main");
 const { data: about } = aboutData ?? {};
 
-const stats = [
-  { label: "Years Experience", value: "7+" },
-  { label: "Projects Delivered", value: "10+" },
-  { label: "Client Satisfaction", value: "100%" },
-  { label: "Avg. Performance Boost", value: "30%" },
-];
 ---
 
 {

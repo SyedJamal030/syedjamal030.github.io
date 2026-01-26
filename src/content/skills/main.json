@@ -2,47 +2,64 @@
   "categories": [
     {
       "title": "Core Engineering",
-      "description": "Deep-core specialization in modern frontend ecosystems.",
+      "description": "Scalable web architecture with a focus on type-safety and state management.",
       "color": "primary",
       "skills": [
-        "React.js",
+        "React",
         "Next.js",
         "TypeScript",
-        "JavaScript (ES6+)",
-        "Redux Toolkit"
+        "Redux Toolkit",
+        "JavaScript"
       ],
       "size": "large",
       "layoutType": "standard"
     },
     {
-      "title": "UI Architecture",
-      "description": "Building pixel-perfect and scalable design systems.",
-      "color": "info",
+      "title": "UI & Design Systems",
+      "description": "Pixel-perfect implementation using modern frameworks and design systems.",
+      "color": "secondary",
       "skills": [
-        "TailwindCSS",
-        "Material UI",
+        "CSS / SASS",
+        "Tailwind",
+        "Bootstrap",
         "ShadCn",
-        "Figma",
-        "Responsive Design"
+        "Mui",
+        "Shopify Polaris"
       ],
       "size": "tall",
       "layoutType": "compact"
     },
     {
-      "title": "Performance Mastery",
-      "description": "Average speed boost delivered across projects.",
-      "prefix": "+",
-      "suffix": "%",
-      "color": "secondary",
+      "title": "Optimization",
+      "description": "Specializing in high-performance rendering and SEO-driven architecture.",
+      "color": "info",
       "skills": [
-        "Core Web Vitals",
-        "Bundle Optimization",
-        "Code Splitting",
-        "SEO Optimization"
+        "SSR / SSG",
+        "Image Optimization",
+        "Bundle Analysis",
+        "Lazy Loading",
+        "Lighthouse",
+        "Code Splitting"
+      ],
+      "size": "tall",
+      "layoutType": "compact"
+    },
+    
+    {
+      "title": "Ecosystem",
+      "description": "Extending web expertise into desktop apps and backend integration.",
+      "color": "primary",
+      "skills": [
+        "Electron.js",
+        "Git",
+        "Firebase",
+        "Jira",
+        "Figma",
+        "Adobe Suite",
+        "Agile"
       ],
       "size": "small",
-      "layoutType": "metric",
-      "metricValue": 30
+      "layoutType": "compact"
     }
   ]
 }

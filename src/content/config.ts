@@ -110,9 +110,9 @@ const settings = defineCollection({
   schema: z.object({
     siteName: z.string(),
     description: z.string(),
-    author: z.string(),
     email: z.string(),
     lookingFor: z.string(),
+    contactMeLink: z.string(),
     oneLiner: z.string(),
     availability: z.enum(["Available", "Busy", "Limited"]),
     socials: z.array(

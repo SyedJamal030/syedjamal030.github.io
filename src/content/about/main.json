@@ -1,36 +1,47 @@
-{
-  "heading": "The Design-Centric Architect",
-  "subheading": "Bridging the gap between engineering and business ROI.",
+{  
+  "heading": "Engineering with a Product Mindset",
+  "subheading": "Based in Pakistan, working with the world.",
   "bio": [
-    "I have spent 7 years professionalizing my approach to software, including a deep 5-year focus on the React ecosystem and 2 years mastering Next.js. My background as a Graphic Designer and Content Writer gives me a rare 'multipotentialite' edge: I don't just write functional code, I deliver pixel-perfect products with user empathy.",
-    "For the past 5 years, I have architected modular UI systems and high-scale applications for international clients. I am known for my ability to hit a stride quickly in ambiguous environments, turning evolving requirements into production-ready solutions.",
-    "My engineering philosophy is rooted in performance and scalability. Whether I am leading a distributed team or optimizing a complex B2B dashboard, I ensure every technical decision supports long-term business growth and a 30% average boost in speed."
+    "I have spent the last 7 years navigating the full lifecycle of web development. Starting as a multi-stack freelancer, I embraced my 'multipotentialite' nature (combining technical engineering with roots in Graphic Design and Content Writing).",
+    "This diverse background gives me a unique empathy for the end-user. I don't just write functional code; I deliver solutions that are intuitive and easily maintainable, often acting as the bridge between engineering, design, and marketing teams.",
+    "Today, I focus on building scalable web architectures using React and Next.js, ensuring every pixel is intentional and every interaction is optimized for performance."
   ],
-  "cvLink": "/resume.pdf",
+  "cvLink": "/path-to-your-cv.pdf",
   "showHighlights": true,
-  "highlightsTitle": "Technical Focus",
+  "highlightsTitle": "Why Work With Me",
   "highlights": [
     {
-      "title": "React & Next.js Specialist",
-      "description": "5 years of dedicated React experience, including 2 years of building server-side rendered apps with Next.js.",
-      "icon": "code-2"
+      "title": "High-Growth Adaptability",
+      "description": "Proven ability to hit a stride quickly and deliver dependable, high-quality results even when requirements are evolving or incomplete.",
+      "icon": "zap"
     },
     {
-      "title": "Full Lifecycle Leadership",
-      "description": "7 years in the industry has taught me to manage projects from initial discovery to final cloud deployment.",
-      "icon": "command"
-    },
-    {
-      "title": "Performance Optimization",
-      "description": "Expert in Core Web Vitals, achieving a 30% average performance lift through advanced architectural patterns.",
-      "icon": "trending-up"
+      "title": "Design-Led Engineering",
+      "description": "My background in Graphic Design ensures that 'Pixel-Perfect' isn't just a buzzword, it is a standard I maintain in every build.",
+      "icon": "palette"
     }
   ],
   "showImpact": true,
   "impact": [
-    { "target": 5, "label": "Years Experience", "suffix": "+" },
-    { "label": "Projects Delivered", "target": 10, "suffix": "+" },
-    { "target": 30, "label": "Performance Lift", "suffix": "%" },
-    { "target": 100, "label": "Success Rate", "suffix": "%" }
+    {
+      "target": 7,
+      "label": "Years in Tech",
+      "suffix": "+"
+    },
+    {
+      "target": 5,
+      "label": "React Expertise",
+      "suffix": " yrs"
+    },
+    {
+      "target": 10,
+      "label": "Global Projects",
+      "suffix": "+"
+    },
+    {
+      "target": 30,
+      "label": "Performance Lift",
+      "suffix": "%"
+    }
   ]
 }

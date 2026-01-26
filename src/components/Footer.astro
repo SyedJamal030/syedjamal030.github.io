@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import { getEntry } from "astro:content";
 const settingsData = await getEntry("settings", "main");
 const { data: settings } = settingsData ?? {};
@@ -20,7 +21,14 @@ const footerNav = [
           href="/"
           class="text-xl font-bold tracking-tighter hover:text-primary transition-colors"
         >
-          {settings?.author}
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={54}
+            height={54}
+            loading="eager"
+            class="max-w-full h-auto object-contain dark:invert transition-all"
+          />
         </a>
         <p class="mt-4 text-muted-foreground max-w-sm leading-relaxed">
           {settings?.oneLiner}

@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import myLogo from "../assets/logo.png";
-
 const { pathname } = Astro.url;
 const activePath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
@@ -21,25 +18,12 @@ const navData = [
   id="main-nav"
   class="fixed w-full lg:px-4 lg:py-6 md:px-3 md:py-4 px-2 py-2 top-0 z-50 transition-all duration-300 border-b border-transparent"
 >
-  <div class="lg:container mx-auto flex items-center justify-between">
-    <a
-      href="/"
-      class="md:w-14 md:h-14 w-10 h-10 hover:opacity-80 transition-opacity"
-    >
-      <Image
-        src={myLogo}
-        alt="Logo"
-        width={200}
-        height={200}
-        loading="eager"
-        class="max-w-full h-auto object-contain dark:invert transition-all"
-      />
-    </a>
-
+  <div class="lg:container mx-auto flex items-center md:justify-center justify-end">
+    
     <div class="flex items-center gap-3">
       <button
         id="menu-toggle"
-        class="group inline-flex md:hidden relative w-12 h-12 text-slate-800 text-center items-center justify-center rounded-full hover:shadow-[0_1px_0_theme(colors.slate.950/.04),0_4px_8px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] transition [[aria-pressed=true]]:text-primary hover:!text-primary"
+        class="group inline-flex md:hidden relative w-12 h-12 text-slate-800 dark:text-gray-300 text-center items-center justify-center rounded-full hover:shadow-[0_1px_0_theme(colors.slate.950/.04),0_4px_8px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] transition [[aria-pressed=true]]:text-primary hover:!text-primary"
         aria-pressed="false"
       >
         <span class="sr-only">Menu</span>
@@ -145,33 +129,8 @@ const navData = [
   const initNav = () => {
     const toggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("nav-menu");
-    const nav = document.getElementById("main-nav");
 
-    if (!toggle || !menu || !nav) return;
-
-    window.addEventListener("scroll", () => {
-      const isScrolled = window.scrollY > 20;
-
-      if (isScrolled) {
-        nav.classList.add(
-          "bg-background/80",
-          "backdrop-blur-md",
-          "border-border/50",
-          "lg:py-4",
-        );
-        nav.classList.remove("lg:py-6", "border-transparent");
-        menu.setAttribute("data-scrolled", "true");
-      } else {
-        nav.classList.remove(
-          "bg-background/80",
-          "backdrop-blur-md",
-          "border-border/50",
-          "lg:py-4",
-        );
-        nav.classList.add("lg:py-6", "border-transparent");
-        menu.setAttribute("data-scrolled", "false");
-      }
-    });
+    if (!toggle || !menu) return;
 
     const openMenu = () => {
       toggle.setAttribute("aria-pressed", "true");

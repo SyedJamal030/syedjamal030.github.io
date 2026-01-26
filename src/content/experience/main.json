@@ -2,36 +2,46 @@
   "entries": [
     {
       "company": "Independent Software Practice",
-      "role": "Senior Frontend Developer",
+      "role": "Senior Frontend Engineer & Technical Lead",
       "location": "Remote",
       "startDate": "June 2018",
       "endDate": "Present",
       "highlights": [
-        "Architected over 10 high-performance web applications using React, Next.js, and TypeScript for international clients.",
-        "Delivered an average 30% reduction in page load times through advanced bundle optimization and clean architecture.",
-        "Managed the full project lifecycle, from initial technical scoping and Figma translation to final production deployment.",
-        "Led and mentored distributed teams of developers and QA engineers while maintaining a 100% project success rate."
+        "Architected and delivered 10+ high-scale web applications for international clients, ensuring strict adherence to performance and accessibility standards.",
+        "Engineered modular component libraries and centralized state management systems, reducing feature development cycles by 15%.",
+        "Boosted client platform SEO and user retention by 30% through advanced code-splitting, bundle optimization, and Core Web Vitals profiling.",
+        "Led and mentored cross-functional distributed teams, taking full ownership of technical roadmap and code quality reviews.",
+        "Directly collaborated with stakeholders to translate complex business logic into intuitive, pixel-perfect production interfaces."
       ],
       "skills": [
-        "React.js",
+        "React",
         "Next.js",
         "TypeScript",
         "Performance Optimization",
-        "Technical Leadership"
+        "Technical Leadership",
+        "HTML",
+        "CSS / SASS"
       ]
     },
     {
       "company": "Komorebi Technologies & GulzarSoft",
       "role": "Frontend Developer (Contract)",
-      "location": "Rawalpindi & Gujrat, Pakistan",
+      "location": "Rawalpindi, Pakistan",
       "startDate": "Oct 2020",
       "endDate": "May 2021",
       "highlights": [
-        "Developed responsive components using React.js and PHP, ensuring high performance across various browser environments.",
-        "Redesigned core UI modules for high-traffic platforms, resulting in a 20% increase in user engagement.",
-        "Participated in sprint planning and SDLC phases alongside senior architects to define technical requirements."
+        "Developed responsive web applications and modular UI components using React.js and PHP, ensuring cross-browser compatibility and high performance.",
+        "Redesigned core UI modules for high-traffic platforms, resulting in a 20% increase in user engagement by resolving navigation friction points.",
+        "Contributed to the full Software Development Life Cycle (SDLC), aligning technical requirements with senior architects during sprint planning.",
+        "Ensured pixel-perfect implementation of complex layouts while maintaining a focus on clean, maintainable code structures."
       ],
-      "skills": ["React.js", "PHP", "UI Redesign", "Responsive Design"]
+      "skills": [
+        "React",
+        "JavaScript",
+        "PHP",
+        "Responsive Design",
+        "UI Redesign"
+      ]
     },
     {
       "company": "Upwork",
