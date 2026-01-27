@@ -1,22 +1,33 @@
 ---
 title: "Product Genius AI"
-description: "Architected the frontend and UI evolution for an AI-driven Shopify merchant platform, transforming complex Interaction data into intuitive, mobile-ready dashboards."
-category: "SaaS / AI"
-metrics: "100% responsive mobile-version delivery"
-tags: ["React", "TypeScript", "Polaris", "FastAPI"]
-pubDate: 2024-07-01
+description: "An AI-driven e-commerce personalization engine that tracks real-time shopper behavior to adaptively display personalized content and product suggestions."
+category: "E-commerce & AI"
+metrics: "100% Pixel-Perfect Polaris System"
+tags: ["React", "Next.js", "Shopify Polaris", "TypeScript", "TailwindCSS"]
+pubDate: 2024-01-01
 featured: true
 order: 1
-thumbnail: "/projects/product-genius.jpg"
+thumbnail: "/projects/product-genius.png"
 links:
-  - text: "View App Store"
+  - text: "Live Site"
+    url: "https://productgenius.ai"
+  - text: "Shopify App"
     url: "https://apps.shopify.com/product-genius-ai"
 ---
 
-Product Genius AI leverages a TikTok style scrolling experience for Shopify. I led the frontend architecture and UI evolution, focusing on the visualization of massive AI training datasets for merchant end-users.
+## The Technical Challenge
+The core of Product Genius AI is a sophisticated "Observer" widget. As a **Senior Frontend Engineer**, my mission was to maintain and upgrade the Merchant Dashboard, which serves as the brain for store owners to manage subscriptions, content integrations, and widget customization.
 
-**Key Technical Contributions:**
+## Key Contributions
 
-- **UX Engineering:** Successfully navigated the technical hurdles of rendering data-heavy dashboards on small screens, delivering a fully responsive mobile version.
-- **Real-Time Data Visualization:** Engineered the integration between the React frontend and FastAPI backend to provide live analytics for content engagement and conversion metrics.
-- **Design System Stewardship:** Collaborated with design teams to ensure a premium merchant experience while adhering to Shopify’s Polaris design constraints.
+### 1. Extending Shopify Polaris
+To maintain a "Pixel-Perfect" standard without duplicating code, I architected a custom component library on top of **Shopify Polaris**. By using TypeScript generics and CSS variables, I created reusable wrappers (like the `PGButton`) that allowed us to customize the design system efficiently while staying within the Polaris ecosystem.
+
+### 2. The Design Tab Evolution
+I led the overhaul of the **Design Tab**, a complex in-app editor. I transformed it into a fully responsive interface, ensuring merchants could manage their AI widget layouts and product cards seamlessly from any device, including mobile.
+
+### 3. Performance-First Public Site
+I developed the new version of the public-facing marketing site using **Next.js (SSG)** and **TailwindCSS**. By leveraging Static Site Generation, I ensured the site achieved top-tier Core Web Vitals and SEO performance.
+
+### 4. Codebase Refactoring
+I took ownership of a codebase that had passed through multiple hands. I implemented a clean folder structure and modular architecture, which significantly reduced file clutter and increased the team's development velocity.

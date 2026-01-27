@@ -134,6 +134,9 @@ const { data, slug } = project;
           prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
           prose-headings:underline max-w-none"
         >
+          <p class="text-muted-foreground mt-2 leading-relaxed line-clamp-2">
+            {data.description}
+          </p>
           <Content />
         </article>
       </div>
