@@ -7,8 +7,14 @@ tags: ["React", "Redux Toolkit", "Bootstrap", "RBAC", "Next.js", "TailwindCSS"]
 pubDate: 2022-10-19
 featured: true
 order: 2
-thumbnail: "/projects/ppm.png"
-links: []
+thumbnail: "/assets/projects/ppm.png"
+links:
+  - text: "Live"
+    url: "https://moody-rocks.web.app"
+  - text: "Admin Portal (Demo)"
+    url: "https://ppm.meganoslab.com/admin"
+  - text: "Tenant Portal (Demo)"
+    url: "https://ppm.meganoslab.com/tenant"
 ---
 
 ## The Technical Challenge

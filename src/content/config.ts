@@ -135,23 +135,9 @@ const hero = defineCollection({
   }),
 });
 
-const cases = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    project: z.string(),
-    narrativeIntro: z.string(),
-    insights: z.array(z.string()),
-    leadReflectionTitle: z.string(),
-    leadReflectionBody: z.string(),
-    colorTheme: z.enum(['primary', 'secondary', 'info']).default('primary'),
-  }),
-});
-
 export const collections = {
   projects,
   experience,
-  cases,
   skills,
   education,
   about,

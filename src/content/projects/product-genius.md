@@ -7,9 +7,9 @@ tags: ["React", "Next.js", "Shopify Polaris", "TypeScript", "TailwindCSS"]
 pubDate: 2024-01-01
 featured: true
 order: 1
-thumbnail: "/projects/product-genius.png"
+thumbnail: "/assets/projects/product-genius.png"
 links:
-  - text: "Live Site"
+  - text: "Live"
     url: "https://productgenius.ai"
   - text: "Shopify App"
     url: "https://apps.shopify.com/product-genius-ai"

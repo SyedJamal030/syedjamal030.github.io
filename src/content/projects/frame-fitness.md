@@ -7,9 +7,9 @@ tags: ["React", "GraphQL", "Stripe", "Redux", "Shopify API"]
 pubDate: 2021-06-01
 featured: false
 order: 3
-thumbnail: "/projects/frame-fitness.png"
+thumbnail: "/assets/projects/frame-fitness.png"
 links:
-  - text: "Visit Platform"
+  - text: "Live"
     url: "https://framefitness.com"
 ---
 

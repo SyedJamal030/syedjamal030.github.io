@@ -19,42 +19,44 @@ const categories = [
   description="Explore a collection of 10+ successful web applications built for international clients. Featuring advanced React architecture, Next.js optimization, and high-performance frontend solutions."
   className="pt-20"
 >
-  <main class="py-20 lg:py-32 container mx-auto px-6">
-    <div class="mb-20">
-      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-        Selected <span class="text-primary">Work</span>
-      </h1>
-      <p class="text-muted-foreground max-w-2xl text-lg">
-        Detailed case studies focusing on performance, scalability, and
-        technical architecture.
-      </p>
-    </div>
+  <main class="py-20 lg:py-32">
+    <div class="lg:container mx-auto px-6">
+      <div class="mb-20">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          Selected <span class="text-primary">Work</span>
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-lg">
+          Detailed case studies focusing on performance, scalability, and
+          technical architecture.
+        </p>
+      </div>
 
-    <div class="flex flex-wrap gap-4 mb-12" id="filter-bar">
-      {
-        categories.map((cat) => (
-          <button
-            data-filter={cat}
-            class="filter-btn px-6 py-2 rounded-full border border-border bg-card text-xs font-bold uppercase tracking-widest transition-all hover:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:border-primary"
-            aria-pressed={cat === "All" ? "true" : "false"}
-          >
-            {cat}
-          </button>
-        ))
-      }
-    </div>
+      <div class="flex flex-wrap gap-4 mb-12" id="filter-bar">
+        {
+          categories.map((cat) => (
+            <button
+              data-filter={cat}
+              class="filter-btn px-6 py-2 rounded-full border border-border bg-card text-xs font-bold uppercase tracking-widest transition-all hover:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:border-primary"
+              aria-pressed={cat === "All" ? "true" : "false"}
+            >
+              {cat}
+            </button>
+          ))
+        }
+      </div>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      id="projects-grid"
-    >
-      {
-        sortedProjects.map((project) => (
-          <div class="project-item" data-category={project.data.category}>
-            <ProjectCard project={project} />
-          </div>
-        ))
-      }
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        id="projects-grid"
+      >
+        {
+          sortedProjects.map((project) => (
+            <div class="project-item" data-category={project.data.category}>
+              <ProjectCard project={project} />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </main>
 </Layout>
