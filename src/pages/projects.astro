@@ -56,20 +56,14 @@ const categories = [
   const initProjects = () => {
     const filterBtns = document.querySelectorAll("[data-filter]");
     const projectItems = document.querySelectorAll(".project-item");
-    const menu = document.getElementById("filter-menu");
-    const arrow = document.getElementById("arrow-icon");
 
-    if (!filterBtns.length || !menu) return;
+    if (!filterBtns.length) return;
 
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const filter = (btn as HTMLElement).dataset.filter;
         filterBtns.forEach((b) => b.setAttribute("aria-pressed", "false"));
         btn.setAttribute("aria-pressed", "true");
-
-        menu?.classList.toggle("hidden");
-        menu?.classList.toggle("flex");
-        arrow?.classList.toggle("rotate-180");
 
         projectItems.forEach((item) => {
           const projectItem = item as HTMLElement;
