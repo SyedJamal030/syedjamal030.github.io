@@ -3,7 +3,7 @@ title: "Daraz Label Generator"
 description: "A desktop automation tool built to optimize e-commerce logistics by restructuring high-volume shipping labels for cost-effective printing."
 category: "Desktop App"
 metrics: "50% Lower Printing Costs"
-tags: ["Electron.js", "React", "PDF Processing", "Automation"]
+tags: ["Electron.js", "React", "PDF Processing", "Bootstrap", "JavaScript"]
 pubDate: 2023-02-15
 featured: false
 order: 4
