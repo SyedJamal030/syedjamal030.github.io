@@ -1,25 +1,69 @@
 {
   "entries": [
     {
-      "company": "Senior Dev Collective",
-      "role": "Lead Frontend Architect",
-      "startDate": "2022",
+      "company": "Independent Software Practice",
+      "role": "Senior Frontend Engineer & Technical Lead",
+      "location": "Remote",
+      "startDate": "June 2018",
       "endDate": "Present",
-      "location": "",
-      "skills": [],
       "highlights": [
-        "Architected Next.js systems",
-        "Improved performance by 30%"
+        "Architected and delivered 10+ high-scale web applications for international clients, ensuring strict adherence to performance and accessibility standards.",
+        "Engineered modular component libraries and centralized state management systems, reducing feature development cycles by 15%.",
+        "Boosted client platform SEO and user retention by 30% through advanced code-splitting, bundle optimization, and Core Web Vitals profiling.",
+        "Led and mentored cross-functional distributed teams, taking full ownership of technical roadmap and code quality reviews.",
+        "Directly collaborated with stakeholders to translate complex business logic into intuitive, pixel-perfect production interfaces."
+      ],
+      "skills": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Performance Optimization",
+        "Technical Leadership",
+        "Mui",
+        "Bootstrap",
+        "CSS / SASS",
+        "Shadcn",
+        "Shopify Polaris",
+        "TailwindCSS"
       ]
     },
     {
-      "company": "Creative Agency",
-      "role": "UI Developer",
-      "startDate": "2019",
-      "location": "",
-      "skills": [],
-      "endDate": "2022",
-      "highlights": ["Bridged design and code", "Built 20+ landing pages"]
+      "company": "Komorebi Technologies & GulzarSoft",
+      "role": "Frontend Developer (Contract)",
+      "location": "Rawalpindi, Pakistan",
+      "startDate": "Oct 2020",
+      "endDate": "May 2021",
+      "highlights": [
+        "Developed responsive web applications and modular UI components using React.js and PHP, ensuring cross-browser compatibility and high performance.",
+        "Redesigned core UI modules for high-traffic platforms, resulting in a 20% increase in user engagement by resolving navigation friction points.",
+        "Contributed to the full Software Development Life Cycle (SDLC), aligning technical requirements with senior architects during sprint planning.",
+        "Ensured pixel-perfect implementation of complex layouts while maintaining a focus on clean, maintainable code structures."
+      ],
+      "skills": [
+        "React",
+        "JavaScript",
+        "PHP",
+        "Responsive Design",
+        "UI Redesign"
+      ]
+    },
+    {
+      "company": "Upwork",
+      "role": "Content Writer & Graphic Designer",
+      "location": "Remote",
+      "startDate": "Aug 2018",
+      "endDate": "Oct 2020",
+      "highlights": [
+        "Established a foundation in visual communication by creating professional graphics and layouts using Adobe Creative Suite.",
+        "Translated complex technical concepts into clear narratives, honing the documentation skills used in my engineering career.",
+        "Managed client expectations and project scopes independently, building strong consultation and stakeholder management skills."
+      ],
+      "skills": [
+        "Figma",
+        "Adobe Photoshop",
+        "Technical Writing",
+        "Visual Design"
+      ]
     }
   ]
 }

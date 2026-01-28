@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 const projects = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -12,10 +12,14 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     order: z.number().default(99),
     thumbnail: z.string(),
-    links: z.array(z.object({
-      text: z.string(),
-      url: z.string().url()
-    })).optional(),
+    links: z
+      .array(
+        z.object({
+          text: z.string(),
+          url: z.string().url(),
+        }),
+      )
+      .optional(),
   }),
 });
 
@@ -43,12 +47,7 @@ const skills = defineCollection({
       z.object({
         title: z.string(),
         description: z.string(),
-        suffix: z.string().optional().default(""),
-        prefix: z.string().optional().default(""),
-        color: z.enum(["primary", "secondary", "info"]),
         skills: z.array(z.string()),
-        size: z.enum(["large", "tall", "small"]),
-        layoutType: z.enum(["standard", "metric", "compact"]),
       }),
     ),
   }),
@@ -105,9 +104,10 @@ const settings = defineCollection({
   schema: z.object({
     siteName: z.string(),
     description: z.string(),
-    author: z.string(),
     email: z.string(),
     lookingFor: z.string(),
+    contactMeLink: z.string(),
+    oneLiner: z.string(),
     availability: z.enum(["Available", "Busy", "Limited"]),
     socials: z.array(
       z.object({
@@ -124,7 +124,7 @@ const settings = defineCollection({
 });
 
 const hero = defineCollection({
-  type: 'data',
+  type: "data",
   schema: z.object({
     headingMain: z.string(),
     headingAccent: z.string(),
@@ -132,7 +132,7 @@ const hero = defineCollection({
     description: z.string(),
     stackTitle: z.string(),
     stack: z.array(z.string()),
-  })
+  }),
 });
 
 export const collections = {

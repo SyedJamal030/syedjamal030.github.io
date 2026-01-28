@@ -1,8 +1,8 @@
 {
-  "headingMain": "Architecting",
-  "headingAccent": "Scalable",
-  "headingSuffix": "Web Experiences",
-  "description": "Senior Frontend Developer specializing in React & Next.js. I bridge the gap between complex engineering and pixel-perfect design, delivering +30% performance gains by default.",
-  "stackTitle": "Trusted Tech Stack",
-  "stack": ["Next.js", "TypeScript", "Redux", "Node.js", "Tailwind"]
+  "headingMain": "Senior Frontend Engineer",
+  "headingAccent": "Building Scalable",
+  "headingSuffix": "Web Experiences.",
+  "description": "7 years of experience building high-performance web apps. I specialize in React and Next.js, turning complex designs into scalable, production-ready code.",
+  "stackTitle": "Core Expertise",
+  "stack": ["React", "Next.js", "TypeScript", "TailwindCSS"]
 }

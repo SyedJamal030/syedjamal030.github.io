@@ -1,66 +1,43 @@
 ---
 import { getEntry } from "astro:content";
-import Counter from "./Counter.astro";
 const skillsManifest = await getEntry("skills", "main");
-
-const gridMap = {
-  large: "md:col-span-7 lg:col-span-6 md:row-span-2", // Takes up roughly half the width
-  tall: "md:col-span-5 lg:col-span-3 md:row-span-2",  // Sleek vertical card
-  small: "md:col-span-5 lg:col-span-3 md:row-span-1", // Fits next to the tall card
-};
-
-const colorMap = {
-  primary: "text-primary border-primary/20",
-  secondary: "text-secondary border-secondary/20",
-  info: "text-info border-info/20",
-};
+const { data: skills } = skillsManifest ?? {};
 ---
 
-<section class="py-24">
-  <div class="lg:container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[200px]">
-      {
-        skillsManifest?.data.categories.map((cat) => (
-          <div
-            class:list={[
-              gridMap[cat.size],
-              "rounded-xl border p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-xl",
-              cat.layoutType === "metric"
-                ? "bg-secondary/5"
-                : "bg-card border-border",
-            ]}
-          >
-            {cat.layoutType === "metric" ? (
-              <div class="flex flex-col items-center justify-center h-full text-center group">
-                <div class="text-6xl font-black text-secondary mb-2 group-hover:scale-110 transition-transform">
-                  <Counter target={Number(cat.skills[0])} label={cat.description} suffix={cat.suffix} prefix={cat.prefix} />
-                </div>
-                <p class="text-xs font-bold uppercase tracking-widest">
-                  {cat.description}
-                </p>
-              </div>
-            ) : (
-              <>
-                <div>
-                  <h3 class:list={["text-xl font-bold", colorMap[cat.color]]}>
-                    {cat.title}
-                  </h3>
-                  <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-                    {cat.description}
-                  </p>
-                </div>
-                <div class="flex gap-2 flex-wrap">
-                  {cat.skills.map((skill) => (
-                    <span class="px-2.5 py-1 bg-muted/50 border border-border rounded-full text-[10px] font-mono">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </>
-            )}
+<section class="container py-24 px-6 mx-auto" id="skills">
+  <div class="mb-16 space-y-4">
+    <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
+      Technical <span class="text-primary">Arsenal</span>
+    </h2>
+    <p class="text-muted-foreground max-w-2xl text-lg">
+      A comprehensive breakdown of my digital craftsmanship, from core
+      architecture to design systems.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    {
+      skills?.categories.map((category) => (
+        <div class="group relative p-8 rounded-lg border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-secondary/50">
+          <div class="absolute top-0 left-0 w-1 h-0 bg-secondary transition-all duration-300 group-hover:h-full rounded-l-lg" />
+
+          <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+            {category.title}
+          </h3>
+
+          <p class="text-sm text-muted-foreground mb-20 leading-relaxed">
+            {category.description}
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <span class="px-3 py-1 text-xs font-medium rounded-full bg-muted border border-border text-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                {skill}
+              </span>
+            ))}
           </div>
-        ))
-      }
-    </div>
+        </div>
+      ))
+    }
   </div>
 </section>

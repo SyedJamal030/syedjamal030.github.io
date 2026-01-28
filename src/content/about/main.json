@@ -1,28 +1,52 @@
 {
-  "heading": "High speed. High quality.",
-  "subheading": "No compromises.",
+  "heading": "Engineering with a Product Mindset",
+  "subheading": "Based in Pakistan, working with the world.",
   "bio": [
-    "With 7 years in the game, I've learned that great software isn't just about clean code (though I'm obsessed with that). It's about building solutions that people actually enjoy using.",
-    "My background in Graphic Design and Content Writing allows me to speak the language of design and marketing teams fluently. I don't just 'receive tickets'; I contribute to the product vision, ensuring every pixel and every line of code serves the end-user."
+    "I have spent the last 7 years navigating the full lifecycle of web development, evolving from a versatile freelancer into a specialized Senior Frontend Engineer.",
+    "My approach is rooted in ownership. Having managed my own practice and led distributed teams, I understand that a high-performance UI is only as good as the business logic and architecture supporting it.",
+    "Today, I focus on building scalable web systems using React and Next.js, acting as the technical bridge between client vision, design integrity, and production-ready code."
   ],
-  "cvLink": "/resume.pdf",
-  "showPhilosophy": true,
-  "philosophyTitle": "The Senior Philosophy",
-  "philosophyItems": [
+  "cvLink": "/Syed-Jamal-Senior-Frontend-CV.pdf",
+  "showHighlights": true,
+  "highlightsTitle": "Why Work With Me",
+  "highlights": [
     {
-      "title": "Clean Architecture",
-      "description": "Scalable structures that developers love to maintain."
+      "title": "Design-Led Engineering",
+      "description": "A 'multipotentialite' background in Graphic Design and Content Writing allows me to bridge the gap between aesthetics and code with true UI/UX empathy.",
+      "icon": "palette"
     },
     {
-      "title": "User-Centric Performance",
-      "description": "Speed is a feature, not an afterthought."
+      "title": "Strategic Communication",
+      "description": "Expertise in managing international stakeholders and translating complex technical roadmap into clear, actionable business outcomes.",
+      "icon": "message-square"
+    },
+    {
+      "title": "High-Growth Adaptability",
+      "description": "Proven ability to hit a stride quickly and deliver dependable results even when project requirements are evolving or incomplete.",
+      "icon": "zap"
     }
   ],
   "showImpact": true,
   "impact": [
-    { "label": "Years Experience", "target": 7, "suffix": "+" },
-    { "label": "Projects Delivered", "target": 10, "suffix": "+" },
-    { "label": "Client Satisfaction", "target": 100, "suffix": "%" },
-    { "label": "Avg. Performance Boost", "target": 30, "suffix": "%" }
+    {
+      "target": 7,
+      "label": "Years in Tech",
+      "suffix": "+"
+    },
+    {
+      "target": 5,
+      "label": "React Expertise",
+      "suffix": " yrs"
+    },
+    {
+      "target": 10,
+      "label": "Global Projects",
+      "suffix": "+"
+    },
+    {
+      "target": 30,
+      "label": "Performance Lift",
+      "suffix": "%"
+    }
   ]
 }

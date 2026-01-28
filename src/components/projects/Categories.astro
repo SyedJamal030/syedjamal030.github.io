@@ -1,0 +1,64 @@
+---
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="space-y-4 min-w-full">
+  <button
+    id="filter-toggle"
+    class="flex items-center justify-between w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg md:hidden group"
+  >
+    <span class="text-sm font-medium text-slate-300">Filter Projects</span>
+    <svg
+      id="arrow-icon"
+      class="w-4 h-4 transition-transform group-[[aria-expanded='true']]:!rotate-180"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div
+    id="product-filter-menu"
+    class="hidden md:flex flex-wrap gap-3 transition-all duration-300 ease-in-out [[aria-expanded='true']]:!flex"
+  >
+    {
+      categories.map((cat) => (
+        <button
+          data-filter={cat}
+          class="filter-btn whitespace-nowrap px-6 py-2 rounded-full border border-border bg-card text-xs font-bold uppercase tracking-widest transition-all hover:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:border-primary"
+          aria-pressed={cat === "All" ? "true" : "false"}
+        >
+          {cat}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const setFilter = () => {
+    const toggleBtn = document.getElementById("filter-toggle");
+    const menu = document.getElementById("product-filter-menu");
+
+    if (!toggleBtn || !menu) return;
+
+    toggleBtn?.addEventListener("click", () => {
+      const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+      toggleBtn.setAttribute("aria-expanded", (!isExpanded).toString());
+      menu.setAttribute("aria-expanded", (!isExpanded).toString());
+    });
+  };
+
+  setFilter();
+  document.addEventListener("astro:after-swap", setFilter);
+</script>

@@ -35,14 +35,14 @@ const experienceData = await getEntry("experience", "main");
             <ul class="mt-3 space-y-2">
               {exp.highlights.map((point) => (
                 <li class="text-sm text-muted-foreground leading-relaxed flex gap-2">
-                  <span class="text-primary mt-1.5 shrink-0 w-1 h-1 rounded-full bg-primary/40" />
+                  <span class="text-primary mt-2.5 shrink-0 w-1.5 h-1.5 rounded-full bg-primary/60" />
                   {point}
                 </li>
               ))}
             </ul>
 
             {exp.skills && (
-              <div class="mt-4 flex flex-wrap gap-2">
+              <div class="mt-10 flex flex-wrap gap-2">
                 {exp.skills.map((skill) => (
                   <span class="text-[9px] font-bold uppercase tracking-tighter text-primary/60 border border-primary/10 px-2 py-0.5 rounded bg-primary/5">
                     {skill}

@@ -5,12 +5,6 @@ import Counter from "./Counter.astro";
 const aboutData = await getEntry("about", "main");
 const { data: about } = aboutData ?? {};
 
-const stats = [
-  { label: "Years Experience", value: "7+" },
-  { label: "Projects Delivered", value: "10+" },
-  { label: "Client Satisfaction", value: "100%" },
-  { label: "Avg. Performance Boost", value: "30%" },
-];
 ---
 
 {
@@ -19,11 +13,10 @@ const stats = [
       <div class="lg:container mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           {(about.impact ?? []).map((impact) => (
-            <div class="text-center md:text-left">
+            <div>
               <div class="text-3xl md:text-4xl font-bold text-secondary">
                 <Counter
                   target={impact.target}
-                  label={impact.label}
                   suffix={impact.suffix}
                   prefix={impact.prefix}
                 />

@@ -1,30 +1,53 @@
 {
   "categories": [
     {
-      "title": "Core Architecture",
-      "description": "TypeScript-heavy Next.js apps.",
-      "size": "large",
-      "layoutType": "standard",
-      "color": "primary",
-      "skills": ["React", "Next.js", "TypeScript"]
+      "title": "Core Engineering",
+      "description": "Scalable web architecture with a focus on type-safety and state management.",
+      "skills": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Redux Toolkit",
+        "JavaScript"
+      ]
     },
     {
-      "title": "Performance",
-      "description": "Average Load Time",
-      "size": "tall",
-      "layoutType": "metric",
-      "suffix": "%",
-      "prefix": "",
-      "color": "secondary",
-      "skills": ["-30"]
+      "title": "UI & Design Systems",
+      "description": "Pixel-perfect implementation using modern frameworks and design systems.",
+      "skills": [
+        "CSS / SASS",
+        "Tailwind",
+        "Bootstrap",
+        "ShadCn",
+        "Mui",
+        "Shopify Polaris"
+      ]
     },
     {
-      "title": "Design Empathy",
-      "description": "UI/UX principles.",
-      "size": "small",
-      "layoutType": "compact",
-      "color": "secondary",
-      "skills": ["Figma", "Tailwind"]
+      "title": "Optimization",
+      "description": "Specializing in high-performance rendering and SEO-driven architecture.",
+      "skills": [
+        "SSR / SSG",
+        "Image Optimization",
+        "Bundle Analysis",
+        "Lazy Loading",
+        "Lighthouse",
+        "Code Splitting"
+      ]
+    },
+    
+    {
+      "title": "Ecosystem",
+      "description": "Extending web expertise into desktop apps and backend integration.",
+      "skills": [
+        "Electron.js",
+        "Git",
+        "Firebase",
+        "Jira",
+        "Figma",
+        "Adobe Suite",
+        "Agile"
+      ]
     }
   ]
 }
