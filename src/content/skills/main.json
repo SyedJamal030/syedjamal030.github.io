@@ -2,51 +2,69 @@
   "categories": [
     {
       "title": "Core Engineering",
-      "description": "Scalable web architecture with a focus on type-safety and state management.",
+      "description": "Architecting scalable web solutions with a focus on type-safety, modularity, and high-performance logic.",
       "skills": [
-        "React",
-        "Next.js",
+        "JavaScript ES6+",
         "TypeScript",
+        "React.js",
+        "Next.js",
+        "Electron.js"
+      ]
+    },
+    {
+      "title": "Frameworks & State",
+      "description": "Managing complex application state and data fetching with modern, industry-standard libraries.",
+      "skills": [
         "Redux Toolkit",
-        "JavaScript"
+        "TanStack Query",
+        "React Hook Form / Formik",
+        "Zod / Yup",
+        "Context API"
       ]
     },
     {
       "title": "UI & Design Systems",
-      "description": "Pixel-perfect implementation using modern frameworks and design systems.",
+      "description": "Building pixel-perfect, accessible interfaces using utility-first CSS and robust component libraries.",
       "skills": [
-        "CSS / SASS",
-        "Tailwind",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Material UI (MUI)",
+        "Chakra UI",
         "Bootstrap",
-        "ShadCn",
-        "Mui",
-        "Shopify Polaris"
+        "Spoify Polaris",
+        "CSS3 / SASS"
       ]
     },
     {
-      "title": "Optimization",
-      "description": "Specializing in high-performance rendering and SEO-driven architecture.",
+      "title": "API & Infrastructure",
+      "description": "Implementing secure communication layers and cloud-based backend integrations.",
+      "skills": ["REST / Axios", "GraphQL", "JWT / OAuth", "RBAC", "Firebase"]
+    },
+    {
+      "title": "Performance & Quality",
+      "description": "Optimizing user experience through rigorous performance metrics and responsive design standards.",
       "skills": [
-        "SSR / SSG",
-        "Image Optimization",
+        "Core Web Vitals",
+        "Code Splitting",
+        "SEO Optimization",
         "Bundle Analysis",
-        "Lazy Loading",
-        "Lighthouse",
-        "Code Splitting"
+        "Responsive Design"
       ]
     },
-    
     {
-      "title": "Ecosystem",
-      "description": "Extending web expertise into desktop apps and backend integration.",
+      "title": "AI & Productivity",
+      "description": "Leveraging modern AI-driven development workflows and prompt engineering to accelerate delivery.",
+      "skills": ["Claude", "Gemini", "Lovable", "ChatGPT", "GitHub Copilot"]
+    },
+    {
+      "title": "Ecosystem & Tools",
+      "description": "Managing professional development lifecycles within agile environments and collaborative teams.",
       "skills": [
-        "Electron.js",
-        "Git",
-        "Firebase",
-        "Jira",
+        "Git (GitHub / Bitbucket)",
+        "Jira / Agile",
         "Figma",
-        "Adobe Suite",
-        "Agile"
+        "Sanity",
+        "VS Code"
       ]
     }
   ]

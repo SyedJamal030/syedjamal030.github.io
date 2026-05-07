@@ -1,8 +1,8 @@
 {
   "headingMain": "Senior Frontend Engineer",
-  "headingAccent": "Building Scalable",
-  "headingSuffix": "Web Experiences.",
-  "description": "7 years of experience building high-performance web apps. I specialize in React and Next.js, turning complex designs into scalable, production-ready code.",
+  "headingAccent": "Architecting Scalable",
+  "headingSuffix": "Modular Systems.",
+  "description": "7+ years of expertise in building high-performance web applications. I specialize in React and Next.js, transforming complex business logic into low-debt, production-ready code with an architectural mindset.",
   "stackTitle": "Core Expertise",
-  "stack": ["React", "Next.js", "TypeScript", "TailwindCSS"]
+  "stack": ["React", "Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "AI-Assisted Dev"]
 }
