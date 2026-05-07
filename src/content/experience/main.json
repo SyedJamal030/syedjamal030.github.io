@@ -1,68 +1,86 @@
 {
   "entries": [
     {
-      "company": "Independent Software Practice",
-      "role": "Senior Frontend Engineer & Technical Lead",
-      "location": "Remote",
-      "startDate": "June 2018",
+      "company": "Product Genius AI",
+      "role": "Senior Frontend Engineer (Contract)",
+      "location": "Cambridge, MA (Remote)",
+      "startDate": "June 2024",
       "endDate": "Present",
       "highlights": [
-        "Architected and delivered 10+ high-scale web applications for international clients, ensuring strict adherence to performance and accessibility standards.",
-        "Engineered modular component libraries and centralized state management systems, reducing feature development cycles by 15%.",
-        "Boosted client platform SEO and user retention by 30% through advanced code-splitting, bundle optimization, and Core Web Vitals profiling.",
-        "Led and mentored cross-functional distributed teams, taking full ownership of technical roadmap and code quality reviews.",
-        "Directly collaborated with stakeholders to translate complex business logic into intuitive, pixel-perfect production interfaces."
+        "Engineered a feature-based architecture for their Shopify App v2.0, improving codebase maintainability by 40% through strategic implementation of React, TypeScript, and shadcn primitives.",
+        "Leveraged AI-assisted development workflows (Claude, Gemini, Lovable) to accelerate delivery while maintaining 99.9% application stability and Core Web Vitals targets.",
+        "Architected a reusable modular component library that reduced redundant code by 30% and minimized long-term technical debt.",
+        "Built a high-performance, SEO-optimized public website using Next.js, replacing a legacy framework and implementing custom sitemaps and meta tags.",
+        "Collaborated with global stakeholders to convert complex business requirements into user-friendly interfaces, meeting 100% of launch requirements."
+      ],
+      "skills": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Prompt Engineering",
+        "SEO Optimization"
+      ]
+    },
+    {
+      "company": "Tinkering Inc",
+      "role": "Senior Frontend Engineer (Contract)",
+      "location": "California, USA (Remote)",
+      "startDate": "Jan 2022",
+      "endDate": "May 2024",
+      "highlights": [
+        "Led end-to-end development of a high-scale ERP application from technical planning to production, achieving 100% alignment with complex business logic.",
+        "Architected a unified, themeable component system shared across ERP and e-commerce platforms, accelerating feature delivery by 25%.",
+        "Integrated complex REST APIs and RBAC systems securing access for 500+ internal users using Redux Toolkit, Axios, and Formik/Yup.",
+        "Reduced application bundle size by 20% through advanced code-splitting and React/TypeScript performance best practices.",
+        "Managed cross-functional distributed teams of developers and QA engineers to ensure consistent code quality and on-time project delivery."
       ],
       "skills": [
         "React",
-        "Next.js",
-        "TypeScript",
+        "Redux Toolkit",
+        "ERP Architecture",
+        "RBAC",
         "Performance Optimization",
-        "Technical Leadership",
-        "Mui",
-        "Bootstrap",
-        "CSS / SASS",
-        "Shadcn",
-        "Shopify Polaris",
-        "TailwindCSS"
+        "Technical Leadership"
+      ]
+    },
+    {
+      "company": "Independent Software Practice",
+      "role": "Self-Employed Frontend Developer",
+      "location": "Pakistan (Remote)",
+      "startDate": "May 2021",
+      "endDate": "Dec 2021",
+      "highlights": [
+        "Achieved a 95% client satisfaction rating across 10+ high-scale B2B web applications for international clients.",
+        "Led and mentored a distributed cross-functional team of developers and designers, ensuring 100% on-time delivery.",
+        "Directed the full project lifecycle from initial discovery and technical discovery through to successful production deployment."
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Firebase",
+        "Project Management",
+        "Stakeholder Consultation"
       ]
     },
     {
       "company": "Komorebi Technologies & GulzarSoft",
       "role": "Frontend Developer (Contract)",
-      "location": "Rawalpindi, Pakistan",
+      "location": "Pakistan",
       "startDate": "Oct 2020",
       "endDate": "May 2021",
       "highlights": [
-        "Developed responsive web applications and modular UI components using React.js and PHP, ensuring cross-browser compatibility and high performance.",
-        "Redesigned core UI modules for high-traffic platforms, resulting in a 20% increase in user engagement by resolving navigation friction points.",
-        "Contributed to the full Software Development Life Cycle (SDLC), aligning technical requirements with senior architects during sprint planning.",
-        "Ensured pixel-perfect implementation of complex layouts while maintaining a focus on clean, maintainable code structures."
+        "Increased user engagement by approximately 20% by redesigning core UI modules and resolving navigation friction points on high-traffic platforms.",
+        "Developed responsive web applications and modular components in PHP and React.js with 100% cross-browser compatibility.",
+        "Aligned technical requirements with senior architects during sprint planning and contributed to the full SDLC."
       ],
       "skills": [
-        "React",
-        "JavaScript",
+        "React.js",
         "PHP",
-        "Responsive Design",
-        "UI Redesign"
-      ]
-    },
-    {
-      "company": "Upwork",
-      "role": "Content Writer & Graphic Designer",
-      "location": "Remote",
-      "startDate": "Aug 2018",
-      "endDate": "Oct 2020",
-      "highlights": [
-        "Established a foundation in visual communication by creating professional graphics and layouts using Adobe Creative Suite.",
-        "Translated complex technical concepts into clear narratives, honing the documentation skills used in my engineering career.",
-        "Managed client expectations and project scopes independently, building strong consultation and stakeholder management skills."
-      ],
-      "skills": [
-        "Figma",
-        "Adobe Photoshop",
-        "Technical Writing",
-        "Visual Design"
+        "UI Redesign",
+        "Cross-Browser Compatibility",
+        "SDLC"
       ]
     }
   ]

@@ -1,18 +1,7 @@
 ---
-import { getEntry } from 'astro:content';
-const settingsData = await getEntry('settings', 'main');
+import { getEntry } from "astro:content";
+const settingsData = await getEntry("settings", "main");
 const { data: settings } = settingsData ?? {};
-
-
-interface Props {
-  title?: string;
-  description?: string;
-}
-
-const { 
-  title = settings?.siteName ?? "My Portfolio", 
-  description = settings?.description ?? "Explore my professional portfolio. Showcasing featured projects, specialized skills, and creative solutions in my field. Let's build something together."
-} = Astro.props;
 
 interface Props {
   title?: string;
@@ -20,32 +9,46 @@ interface Props {
   image?: string;
 }
 
+const {
+  title = settings?.siteName ?? "Syed Jamal | Senior Frontend Architect",
+  description = settings?.description ??
+    "Senior Frontend Engineer specializing in React, Next.js, and low-debt architecture.",
+  image = settings?.seo?.ogImage ?? "/og-default.png",
+} = Astro.props;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{title}</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
 <link rel="canonical" href={canonicalURL} />
 
+<title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{
+  settings?.seo?.keywords && (
+    <meta name="keywords" content={settings.seo.keywords.join(", ")} />
+  )
+}
+<meta name="author" content="Syed Muhammad Jamal Waheed" />
+<meta name="robots" content="index, follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{settings && (
-  <meta property="og:image" content={new URL(settings.seo.ogImage, Astro.url)} />
-)}
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content={settings?.siteName} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-{settings && (
-  <meta property="twitter:image" content={new URL(settings.seo.ogImage, Astro.url)} />
-)}
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+{settings?.oneLiner && <meta name="headline" content={settings.oneLiner} />}

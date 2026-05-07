@@ -1,11 +1,11 @@
 {
-  "siteName": "Syed Jamal | Senior Frontend Developer | React & Next.js Expert",
-  "description": "Senior Frontend Engineer with 7 years of experience specializing in React, Next.js, and high-performance web architecture. Expert in translating complex designs into scalable, production-ready code.",
-  "oneLiner": "Bridging the gap between engineering and business ROI.",
-  "lookingFor": "Currently seeking Senior Frontend Engineering Roles",
+  "siteName": "Syed Jamal | Senior Frontend Architect | React & Next.js Expert",
+  "description": "Senior Frontend Engineer with 7+ years of experience specializing in React, Next.js, and low-debt architecture. Expert in building extensible component libraries and translating complex business logic into scalable code.",
+  "oneLiner": "Architecting high-performance systems with a product-first mindset.",
+  "lookingFor": "Open to Senior Frontend Architect & Lead Engineering Roles",
   "email": "syed.jamal.waheed@gmail.com",
   "contactMeLink": "https://www.linkedin.com/in/syed-jamal-waheed",
-  "availability": "Available",
+  "availability": "availability",
   "socials": [
     {
       "platform": "LinkedIn",
@@ -22,14 +22,16 @@
     "ogImage": "/og-default.png",
     "keywords": [
       "Astro",
-      "Senior Frontend Engineer",
+      "Senior Frontend Architect",
       "React Specialist",
-      "Next.js Developer",
-      "Web Performance Optimization",
-      "Pixel Perfect UI Development",
-      "Frontend Architecture",
+      "Next.js Expert",
       "TypeScript Engineer",
-      "Scalable Web Apps"
+      "Frontend Architecture",
+      "Low Technical Debt",
+      "Modular Component Design",
+      "AI-Assisted Development",
+      "Scalable Web Systems",
+      "Prompt Engineering"
     ]
   }
 }
