@@ -1,14 +1,10 @@
 ---
-import { getEntry } from "astro:content";
-
 import BaseLayout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
 import ImpactBar from "../components/home/ImpactBar.astro";
 import BentoSkills from "../components/home/BentoSkills.astro";
 import FeaturedProjects from "../components/projects/FeaturedProjects.astro";
-
-const settingsData = await getEntry("settings", "main");
-const { data: settings } = settingsData ?? {};
+import GetInTouch from "../components/GetInTouch.astro";
 ---
 
 <BaseLayout>
@@ -16,27 +12,5 @@ const { data: settings } = settingsData ?? {};
   <ImpactBar />
   <BentoSkills />
   <FeaturedProjects />
-
-  <section class="py-24 bg-card border-t border-border">
-    <div class="lg:container mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Ready to drive technical excellence?
-      </h2>
-      {
-        settings?.lookingFor && (
-          <p class="text-muted-foreground mb-10 max-w-xl mx-auto">
-            {settings?.lookingFor}
-          </p>
-        )
-      }
-      <a
-        target="_blank"
-        href={settings?.contactMeLink}
-        rel="noopener noreferrer"
-        class="px-10 py-4 bg-primary text-primary-foreground rounded-md font-bold hover:shadow-xl transition-all"
-      >
-        Get in Touch
-      </a>
-    </div>
-  </section>
+  <GetInTouch />
 </BaseLayout>

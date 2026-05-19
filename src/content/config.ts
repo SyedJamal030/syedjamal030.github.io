@@ -135,7 +135,20 @@ const hero = defineCollection({
   }),
 });
 
+const services = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string().optional(), // Emoji string or SVG path code
+    order: z.number().default(99),
+    highlight: z.boolean().default(false), // Optional indicator to visually spotlight a card
+    deliverables: z.array(z.string()).optional(), // Bullet points of what they get
+  }),
+});
+
 export const collections = {
+  services,
   projects,
   experience,
   skills,
