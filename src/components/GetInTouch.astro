@@ -1,0 +1,40 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  link?: string;
+}
+
+const { title = "Ready to drive technical excellence?", subtitle = "", link = "" } =
+  Astro.props;
+
+const settingsData = await getEntry("settings", "main");
+const { data: settings } = settingsData ?? {};
+
+const contact = link ? link : settings?.contactMeLink;
+---
+
+<section class="py-24 bg-card border-t border-border">
+  <div class="lg:container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      {title}
+    </h2>
+    {
+      settings?.lookingFor || subtitle ? (
+        <p class="text-muted-foreground mb-10 max-w-xl mx-auto block">
+          {subtitle ? subtitle : settings?.lookingFor}
+        </p>
+      ) : null
+    }
+    <a
+      target="_blank"
+      href={contact}
+      rel="noopener noreferrer"
+      class="px-10 py-4 bg-primary text-primary-foreground rounded-md font-bold hover:shadow-xl transition-all"
+    >
+      Get in Touch
+    </a>
+  </div>
+</section>
