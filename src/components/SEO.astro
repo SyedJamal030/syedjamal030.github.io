@@ -7,6 +7,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   description = settings?.description ??
     "Senior Frontend Engineer specializing in React, Next.js, and low-debt architecture.",
   image = settings?.seo?.ogImage ?? "/og-default.png",
+  imageAlt = "Syed Jamal - Senior Frontend Architect portfolio preview",
 } = Astro.props;
 
 const siteUrl = Astro.site ?? "http://localhost:4321";
@@ -22,7 +24,7 @@ const currentURL = Astro.url.href;
 
 // Convert relative image path to absolute URL for scrapers
 const imageURL = new URL(image, Astro.url.origin).href;
-const siteName = settings?.siteName ?? "Syed Jamal";
+const siteName = "Syed Jamal";
 ---
 
 <meta charset="utf-8" />
@@ -44,6 +46,9 @@ const siteName = settings?.siteName ?? "Syed Jamal";
 <meta name="author" content="Syed Muhammad Jamal Waheed" />
 <meta name="robots" content="index, follow" />
 {settings?.oneLiner && <meta name="headline" content={settings.oneLiner} />}
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="/site.webmanifest" />
 
 <!-- Favicons & App Icons -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -67,6 +72,7 @@ const siteName = settings?.siteName ?? "Syed Jamal";
 <!-- Open Graph / WhatsApp -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_US" />
 <meta property="og:url" content={currentURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -75,10 +81,25 @@ const siteName = settings?.siteName ?? "Syed Jamal";
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
 
-<!-- Twitter -->
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
+
 <meta name="twitter:url" content={currentURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<!-- Structured Data (JSON-LD) -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: currentURL,
+  })}
+/>
