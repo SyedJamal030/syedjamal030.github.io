@@ -1,15 +1,16 @@
 ---
-import Icon from '../Icon.astro';
-import Button from '../Button.astro';
-import siteConfig from '~/config/site';
-import { faq, faqHeading } from '~/data/faq';
+import Icon from "../Icon.astro";
+import Button from "../Button.astro";
+import siteConfig from "~/config/site";
+import { faq, faqHeading } from "~/data/faq";
 
 interface Props {
-  headingLevel?: 'h1' | 'h2';
+  headingLevel?: "h1" | "h2";
   id?: string;
 }
 
-const { headingLevel: Heading = 'h2', id = 'faq' } = Astro.props;
+const { headingLevel: Heading = "h2", id = "faq" } = Astro.props;
+const email = siteConfig.contact.email;
 ---
 
 <section class="wrap sec sec-top" id={id} aria-labelledby="faq-h">
@@ -21,7 +22,16 @@ const { headingLevel: Heading = 'h2', id = 'faq' } = Astro.props;
       <div class="faq-aside">
         <h2>{faqHeading.asideTitle}</h2>
         <p>{faqHeading.asideBody}</p>
-        <Button href={`mailto:${siteConfig.contact.email}`} variant="ink" icon="mail">Write to me</Button>
+        <!-- Added a data attribute to store the email address for easy JS access -->
+        <Button
+          href={`mailto:${email}`}
+          variant="ink"
+          icon="mail"
+          id="copyEmailBtn"
+          data-email={email}
+        >
+          Write to me
+        </Button>
       </div>
     </div>
 
@@ -31,12 +41,91 @@ const { headingLevel: Heading = 'h2', id = 'faq' } = Astro.props;
           <details class="faq-item" name="swp-faq" open={i === 0}>
             <summary class="faq-q">
               {item.question}
-              <i><Icon name="plus" class="ic-sm" /></i>
+              <i>
+                <Icon name="plus" class="ic-sm" />
+              </i>
             </summary>
-            <div class="faq-a"><p>{item.answer}</p></div>
+            <div class="faq-a">
+              <p>{item.answer}</p>
+            </div>
           </details>
         ))
       }
     </div>
   </div>
+
+  <!-- Toast Notification Element -->
+  <div id="emailToast" class="email-toast" role="status" aria-live="polite">
+    Email address copied to clipboard!
+  </div>
 </section>
+
+<style>
+  /* Toast styling */
+  .email-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(1rem);
+    background: #111;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .email-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("copyEmailBtn");
+    const toast = document.getElementById("emailToast");
+
+    if (!btn || !toast) return;
+
+    let timeoutId: number;
+
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault(); // Prevent opening mail client immediately so they can copy
+      const email = btn.getAttribute("data-email");
+
+      if (!email) return;
+
+      try {
+        await navigator.clipboard.writeText(email);
+
+        // Show toast
+        toast.classList.add("show");
+
+        // Clear existing timeout if clicked rapidly
+        clearTimeout(timeoutId);
+
+        // Hide toast after 3 seconds
+        timeoutId = window.setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+
+        // Optional: If you still want the mail client to open after a slight delay,
+        // you can uncomment the line below:
+        // setTimeout(() => { window.location.href = `mailto:${email}`; }, 1000);
+      } catch (err) {
+        console.error("Failed to copy email: ", err);
+        // Fallback: If clipboard API fails, let it fallback to mailto link
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  });
+</script>

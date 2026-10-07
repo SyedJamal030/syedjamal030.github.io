@@ -82,7 +82,7 @@ export const about = {
       "Years building production web applications with React, Next.js, and TypeScript.",
   },
   ctaLabel: "See the work",
-  ctaHref: "/projects/",
+  ctaHref: "/work/",
 };
 
 export const servicesHeading = {
