@@ -1,17 +1,15 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from "@tailwindcss/vite";
-
 import sitemap from '@astrojs/sitemap';
 
-import icon from 'astro-icon';
-
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://syedjamal030.github.io',
-
-  vite: {
-    plugins: [tailwindcss()],
+  site: "https://syedjamal030.github.io",
+  output: 'static',
+  trailingSlash: 'always',
+  build: { format: 'directory' },
+  compressHTML: true,
+  integrations: [sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
   },
-
-  integrations: [sitemap(), icon()],
 });

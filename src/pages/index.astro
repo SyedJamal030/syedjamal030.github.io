@@ -1,16 +1,35 @@
 ---
-import BaseLayout from "../layouts/Layout.astro";
-import Hero from "../components/home/Hero.astro";
-import ImpactBar from "../components/home/ImpactBar.astro";
-import BentoSkills from "../components/home/BentoSkills.astro";
-import FeaturedProjects from "../components/projects/FeaturedProjects.astro";
-import GetInTouch from "../components/GetInTouch.astro";
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Hero from '~/components/home/Hero.astro';
+import TrustedStrip from '~/components/home/TrustedStrip.astro';
+import Collaborate from '~/components/home/Collaborate.astro';
+import StatsBand from '~/components/home/StatsBand.astro';
+import About from '~/components/home/About.astro';
+import Toolkit from '~/components/home/Toolkit.astro';
+import Process from '~/components/home/Process.astro';
+import Testimonials from '~/components/home/Testimonials.astro';
+import Faq from '~/components/home/Faq.astro';
+import Cta from '~/components/home/Cta.astro';
+import siteConfig from '~/config/site';
+import { graph, personSchema, websiteSchema } from '~/lib/jsonld';
+
+const jsonLd = graph([personSchema(siteConfig), websiteSchema(siteConfig)]);
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={siteConfig.title}
+  description={siteConfig.description}
+  appendSiteName={false}
+  jsonLd={jsonLd}
+>
   <Hero />
-  <ImpactBar />
-  <BentoSkills />
-  <FeaturedProjects />
-  <GetInTouch />
+  <TrustedStrip />
+  <Collaborate />
+  <StatsBand />
+  <About />
+  <Toolkit />
+  <Process />
+  <Testimonials />
+  <Faq />
+  <Cta id="contact" />
 </BaseLayout>
