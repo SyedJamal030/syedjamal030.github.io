@@ -8,6 +8,7 @@ import type { NavItem } from "~/types";
  * 
     // { label: 'Journal', href: '/journal/' },
     // { label: 'Journal', href: '/journal/', anchor: '#journal' },
+    // { label: "RSS", href: "/rss.xml" },
  */
 
 export const primaryNav: NavItem[] = [
@@ -36,6 +37,5 @@ export const footerNav = {
   legal: [
     { label: "Privacy", href: "/privacy/" },
     { label: "Terms", href: "/terms/" },
-    { label: "RSS", href: "/rss.xml" },
   ] satisfies NavItem[],
 };
