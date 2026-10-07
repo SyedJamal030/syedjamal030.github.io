@@ -1,6 +1,6 @@
 ---
 import "~/styles/global.css";
-import Seo from "~/components/Seo.astro";
+import SEO from "~/components/SEO.astro";
 import IconSprite from "~/components/icons/IconSprite.astro";
 import Header from "~/components/Header.astro";
 import Footer from "~/components/Footer.astro";
@@ -34,7 +34,7 @@ const { bodyClass, ...seo } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="HxDJMW1m3OXh2FfbSgYzZDT5AheHVGFR3Is9KR6qstA" />
     <meta name="msvalidate.01" content="BCEA4617077A459D195044B31105BABC" />
-    
+
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content={siteConfig.themeColor} />
     <meta name="author" content={siteConfig.author} />
@@ -71,7 +71,7 @@ const { bodyClass, ...seo } = Astro.props;
       document.documentElement.classList.add("js");
     </script>
 
-    <Seo {...seo} />
+    <SEO {...seo} />
   </head>
 
   <body class={bodyClass}>
