@@ -1,0 +1,85 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import siteConfig from "~/config/site";
+
+const updated = "Last updated: October 2026";
+---
+
+<PageLayout
+  title="Terms and Conditions"
+  heading="Terms and Conditions"
+  eyebrow="Legal"
+  intro="Terms governing the use of this portfolio and technical publications."
+  description={`Terms of use for ${siteConfig.name}.`}
+  crumbs={[{ label: "Terms" }]}
+>
+  <section class="wrap sec" style="padding-top:0">
+    <div class="prose rev">
+      <h2>Acceptance of Terms</h2>
+      <p>
+        By accessing and browsing this website, you agree to these terms of use.
+        You are welcome to read the portfolio, share links to individual pages,
+        and quote published technical articles provided proper attribution is
+        maintained.
+      </p>
+
+      <h2>Intellectual Property Rights</h2>
+      <p>
+        Unless explicitly stated otherwise, all original content, technical
+        articles, site code, and personal project demonstrations on this domain
+        are the intellectual property of {siteConfig.name}.
+      </p>
+      <p>
+        Client trademarks, brand logos, product names, and case study graphics
+        remain the property of their respective owners. They are displayed
+        strictly for portfolio demonstration purposes under client permission or
+        fair use. Republishing whole pages, copying codebases without
+        permission, or claiming this work as your own is prohibited.
+      </p>
+
+      <h2>Credits and Attributions</h2>
+      <p>
+        This website template is inspired by and forked from <a
+          href="https://github.com/Scintillaweb/swp-freelancer-portfolio"
+          target="_blank"
+          rel="noopener noreferrer">Scintillaweb/swp-freelancer-portfolio</a
+        >.
+      </p>
+
+      <h2>Accuracy and Service Estimates</h2>
+      <p>
+        Content on this site is published in good faith for informational
+        purposes. Technical write-ups, code snippets, and estimated project
+        timelines do not constitute a formal commercial contract or binding
+        legal quote. Project scopes, deliverables, and fees are finalized in a
+        written contract prior to initiating client engagements.
+      </p>
+
+      <h2>External Links</h2>
+      <p>
+        Links to external platforms, technical documentation, third-party
+        repositories, or client websites are provided for convenience. These
+        external destinations operate independently, and no responsibility is
+        accepted for their content, policies, or availability.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        This website is provided on an "as is" basis without warranties of any
+        kind. To the extent permitted by law, no liability is accepted for any
+        direct or indirect loss resulting from site usage, temporary downtime,
+        or reliance on code snippets published in technical articles.
+      </p>
+
+      <h2>Questions and Support</h2>
+      <p>
+        For inquiries regarding these terms, contact <a
+          href={`mailto:${siteConfig.contact.email}`}
+          >{siteConfig.contact.email}</a
+        >.
+      </p>
+
+      <p class="mini muted">{updated}</p>
+    </div>
+  </section>
+</PageLayout>

@@ -1,47 +1,45 @@
-# 🚀 High-Performance Senior Portfolio Template
+# Syed Muhammad Jamal Waheed - Senior Frontend Engineer Portfolio
 
-A "Pixel-Perfect" developer-focused portfolio template architected with **Astro**, **TypeScript**, and **Tailwind CSS**. Designed for Senior Engineers who prioritize performance, type-safety, and clean UI/UX.
+Production-ready portfolio source code for a **Senior Frontend Engineer** and **Web Developer** specializing in high-performance applications, clean architecture, and full-feature ownership from database to UI.
 
-## 🔗 Live Demo
-Check out the reference implementation: [https://syedjamal030.github.io/](https://syedjamal030.github.io/)
+## Core Focus
 
-## ✨ Key Features
-* **Astro 4.0 Architecture:** Zero-shipping JS by default for lightning-fast Core Web Vitals.
-* **Content Collections:** Type-safe Markdown management for Projects and Blog posts using Zod schemas.
-* **Design-Led UI:** Clean, professional aesthetic built with Tailwind CSS, optimized for dark/light modes.
-* **SEO Excellence:** Built-in OpenGraph tags, semantic HTML5, and automated sitemap generation.
-* **CI/CD Ready:** Pre-configured GitHub Actions workflow for seamless deployment to GitHub Pages.
+With over 5 years of experience shipping products, my core strength lies deep in the frontend ecosystem, complemented by full-feature versatility when features demand it. 
 
-## 🛠️ Tech Stack
-* **Framework:** [Astro](https://astro.build/) (Island Architecture)
-* **Language:** [TypeScript](https://www.typescriptlang.org/) (Strictly Typed)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Data Validation:** [Zod](https://zod.dev/) (For Content Collections)
-* **Deployment:** GitHub Pages / Actions
+* **Primary Stack:** React, Next.js, TypeScript
+* **Data & Backend Integration:** Firebase, Supabase, Node.js, REST APIs, Payment integrations
+* **Engineering Philosophy:** Pragmatic execution, clean separation of concerns, performance optimization, and scalable UI architecture.
 
-## 🏁 Getting Started
 
-### Installation
-1.  **Fork & Clone:**
-    ```bash
-    git clone [https://github.com/your-username/portfolio.git](https://github.com/your-username/portfolio.git)
-    cd portfolio
-    ```
-2.  **Install & Start:**
-    ```bash
-    npm install
-    npm run dev
-    ```
-The site will be live at `http://localhost:4321`.
+## About This Repository
 
-## 📂 Project Structure
-* `src/content/`: The "Brain" of the site. Define your projects and bio in Markdown files.
-* `src/components/`: Atomic UI components (Cards, Buttons, Layouts).
-* `src/layouts/`: Base HTML wrappers for different page types.
-* `public/`: Optimized assets and icons.
+This repository powers my personal developer portfolio. It is structured to highlight real-world problem-solving, architectural case studies, and production code standards rather than generic design fluff.
 
-## 🚀 Deployment
-Update the `site` and `base` properties in `astro.config.mjs` to match your GitHub profile, then push to `main`. The included GitHub Action will handle the rest.
+### Key Sections Included:
+* **Home:** Direct positioning, core stack, and senior-level value proposition.
+* **About:** Background on moving beyond "frontend-only" limitations to own features end-to-end.
+* **Projects / Case Studies:** Detailed engineering breakdowns of real-world builds (including real-time fund tracking systems and payment integrations).
+* **Contact:** Direct channels for remote engineering roles and high-value freelance projects.
 
-## 📄 License
-This project is available under the [MIT License](LICENSE).
+## Tech Stack & Tools
+
+| Category | Technologies |
+| :--- | :--- |
+| **Framework** | [Astro](https://astro.build/) (Static HTML output, zero UI framework) |
+| **Language** | TypeScript (strict) |
+| **Styling** | Plain CSS with custom properties — no preprocessor, no utility framework |
+| **Content** | Astro content collections (Markdown) |
+| **Integrations** | `@astrojs/sitemap`, `@astrojs/rss` |
+| **Tooling** | `@astrojs/check` for type checking |
+
+## Credits
+- Template inspired by/forked from [Scintillaweb/swp-freelancer-portfolio](https://github.com/Scintillaweb/swp-freelancer-portfolio).
+
+
+## Connect
+
+* **Portfolio Website:** [syedjamal030.github.io](syedjamal030.github.io/)
+* **LinkedIn:** [https://linkedin.com/in/syed-jamal-waheed](https://linkedin.com/in/syed-jamal-waheed)
+* **Email:** [syed.jamal.waheed@gmail.com](mailto:syed.jamal.waheed@gmail.com)
+
+*(Open to remote full-time opportunities and select freelance engineering contracts.)*

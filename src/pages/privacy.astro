@@ -1,0 +1,86 @@
+---
+import PageLayout from "~/layouts/PageLayout.astro";
+import siteConfig from "~/config/site";
+
+const updated = "Last updated: October 2026";
+---
+
+<PageLayout
+  title="Privacy Policy"
+  heading="Privacy Policy"
+  eyebrow="Legal"
+  intro="How visitor data, analytics, and communications are handled."
+  description={`Privacy Policy for ${siteConfig.name}.`}
+  crumbs={[{ label: "Privacy" }]}
+>
+  <section class="wrap sec" style="padding-top:0">
+    <div class="prose rev">
+      <h2>Overview</h2>
+      <p>
+        This portfolio is designed to present technical work, share engineering
+        articles, and allow prospective clients or employers to initiate
+        contact. Your privacy matters, and data collection is strictly limited
+        to what is required for site communication, analytics, and eventual
+        content monetization.
+      </p>
+
+      <h2>Analytics and Traffic Measurement</h2>
+      <p>
+        This site uses Google Analytics to measure visitor traffic, popular
+        content, and usage trends. This helps identify which technical articles
+        and case studies provide the most value. The data collected includes
+        non-personally identifiable information such as browser type, operating
+        system, device category, referring pages, and coarse location. All
+        metrics are processed in aggregate.
+      </p>
+
+      <h2>Advertising and Cookies</h2>
+      <p>
+        Google AdSense may be integrated across journal articles and technical
+        posts to display advertisements. Google and its third-party ad partners
+        use cookies or unique device identifiers to serve ads based on your
+        visit to this website and other sites on the internet.
+      </p>
+      <p>
+        You can opt out of personalized advertising at any time by visiting <a
+          href="https://www.google.com/settings/ads"
+          target="_blank"
+          rel="noopener noreferrer">Google Ad Settings</a
+        >. You can also opt out of third-party vendor cookies by visiting <a
+          href="https://www.aboutads.info"
+          target="_blank"
+          rel="noopener noreferrer">aboutads.info</a
+        >.
+      </p>
+
+      <h2>Contact Form Submissions</h2>
+      <p>
+        When you submit an inquiry through the contact form or send a direct
+        email, the details provided (such as your name, email address, and
+        project requirements) are used solely to evaluate your request and
+        respond to your message. Your details are never sold, rented, or
+        distributed to third-party marketers.
+      </p>
+
+      <h2>Server Logs</h2>
+      <p>
+        Standard web server logs are maintained by the hosting provider for
+        security and operational health. These logs record standard network
+        details, including IP addresses, timestamps, requested URLs, and user
+        agents, retained according to the host platform retention schedule.
+      </p>
+
+      <h2>Data Rights and Inquiries</h2>
+      <p>
+        You have the right to request the deletion of any contact information or
+        communication history. If you have questions about this privacy policy
+        or wish to remove your messages from active record, reach out directly
+        at <a href={`mailto:${siteConfig.contact.email}`}
+          >{siteConfig.contact.email}</a
+        >.
+      </p>
+
+      <p class="mini muted">{updated}</p>
+    </div>
+  </section>
+</PageLayout>

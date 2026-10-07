@@ -1,118 +1,110 @@
 ---
-import Image from "astro/components/Image.astro";
-import { getEntry } from "astro:content";
-const settingsData = await getEntry("settings", "main");
-const { data: settings } = settingsData ?? {};
+import Icon from "./Icon.astro";
+import siteConfig from "~/config/site";
+import { footerNav } from "~/data/navigation";
+import { getCollection } from "astro:content";
+import { isVisible } from "~/lib/utils";
 
-const currentYear = new Date().getFullYear();
+const services = (await getCollection("services"))
+  .filter(isVisible)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 5);
 
-const footerNav = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/about" },
-];
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border/50 bg-card/30 mt-24">
-  <div class="lg:container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-      <div class="md:col-span-2">
-        <a
-          href="/"
-          class="text-xl font-bold tracking-tighter hover:text-primary transition-colors"
-        >
-          <Image
-            src="/assets/logo.png"
-            alt="Logo"
-            width={54}
-            height={54}
-            loading="eager"
-            class="max-w-full h-auto object-contain dark:invert transition-all"
-          />
-        </a>
-        <p class="mt-4 text-muted-foreground max-w-sm leading-relaxed">
-          {settings?.oneLiner}
-        </p>
-      </div>
-
-      <div>
-        <h4
-          class="font-bold mb-4 text-sm uppercase tracking-widest text-foreground"
-        >
-          Navigation
-        </h4>
-        <ul class="space-y-2">
-          {
-            footerNav.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <div>
-        <h4
-          class="font-bold mb-4 text-sm uppercase tracking-widest text-foreground"
-        >
-          Connect
-        </h4>
-        <div class="inline-flex flex-col gap-2">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`mailto:${settings?.email}`}
-            class="text-sm text-muted-foreground hover:text-secondary transition-colors"
-          >
-            {settings?.email}
-          </a>
-          <div class="flex gap-4">
-            {
-              settings?.socials.map((social) => (
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label={social.platform}
-                >
-                  <span class="text-xs font-medium">{social.platform}</span>
-                </a>
-              ))
-            }
-          </div>
-        </div>
+<footer class="ftr">
+  <div class="wrap ftr-top">
+    <div>
+      <a class="ftr-brand" href="/">
+        <img
+          src={siteConfig.logo.footer.src}
+          alt={`${siteConfig.name} logo`}
+          width={siteConfig.logo.footer.width}
+          height={siteConfig.logo.footer.height}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <p class="ftr-about">{siteConfig.about}</p>
+      <div class="ftr-soc">
+        {
+          siteConfig.social.map((s) => (
+            <a
+              href={s.href}
+              aria-label={s.label}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Icon name={s.icon} class="ic-sm" />
+            </a>
+          ))
+        }
       </div>
     </div>
 
-    <div
-      class="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4"
-    >
-      <p
-        class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground"
-      >
-        © {currentYear} — Handcrafted with Astro
-      </p>
-      <div class="flex items-center gap-2">
-        <span class="relative flex h-2 w-2">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
-          ></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
-          ></span>
-        </span>
+    <nav aria-labelledby="ftr-explore">
+      <h2 id="ftr-explore">Explore</h2>
+      <ul class="ftr-links">
+        {
+          footerNav.explore.map((l) => (
+            <li>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="ftr-services">
+      <h2 id="ftr-services">Services</h2>
+      <ul class="ftr-links">
+        {
+          services.map((s) => (
+            <li>
+              <a href={`/services/${s.id.replace(/^\d+-/, '')}/`}>{s.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <h2>Get in touch</h2>
+      <div class="ftr-cbox">
+        <Icon name="mail" class="ic-sm" />
         <span
-          class="text-[10px] font-bold uppercase tracking-widest text-emerald-500"
+          ><a href={`mailto:${siteConfig.contact.email}`}
+            >{siteConfig.contact.email}</a
+          ></span
         >
-          Open for opportunities
-        </span>
+      </div>
+      <div class="ftr-cbox">
+        <Icon name="phone" class="ic-sm" />
+        <span
+          ><a href={`tel:${siteConfig.contact.phoneHref}`}
+            >{siteConfig.contact.phone}</a
+          ></span
+        >
+      </div>
+      <div class="ftr-cbox">
+        <Icon name="pin" class="ic-sm" />
+        <span>{siteConfig.contact.location}</span>
       </div>
     </div>
+  </div>
+
+  <div class="wrap ftr-bot">
+    <p>
+      &copy; {year}
+      {siteConfig.copyrightHolder}. All rights reserved. Inspired by <a
+        href="https://github.com/Scintillaweb/swp-freelancer-portfolio"
+        target="_blank"
+        rel="noopener noreferrer">swp-freelancer-portfolio</a
+      >.
+    </p>
+    <nav aria-label="Legal">
+      {footerNav.legal.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
   </div>
 </footer>

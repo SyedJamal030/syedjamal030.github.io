@@ -1,21 +1,46 @@
 {
-  "name": "portfolio",
+  "name": "syed-jamal-portfolio",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "description": "Personal portfolio of Syed Jamal, Senior Frontend Engineer and Web Developer, built with Astro and TypeScript.",
+  "license": "MIT",
+  "homepage": "https://syedjamal030.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedJamal030/syedJamal030.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/syedJamal030/syedJamal030.github.io/issues"
+  },
+  "keywords": [
+    "senior-frontend-engineer",
+    "web-developer",
+    "react",
+    "nextjs",
+    "typescript",
+    "astro",
+    "portfolio"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
+    "sync": "astro sync",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.15",
-    "astro-icon": "^1.1.5",
-    "tailwindcss": "^4.1.18"
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19"
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
   }
 }
