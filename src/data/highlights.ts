@@ -23,9 +23,11 @@ export const hero = {
     title: ["Frontend", "Architecture"],
     /** Small avatar stack — decorative, so the images carry empty alt text. */
     stack: [
-      "/images/avatar-02.webp",
-      "/images/avatar-01.webp",
-      "/images/avatar-03.webp",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
     ],
     stackBadge: "100%",
     kpi: "5+",
@@ -44,13 +46,13 @@ export const collaborate = {
   ctaHref: "/contact/",
   images: [
     {
-      src: "/images/collab-team.webp",
+      src: "/assets/resource/developer-reviewing-web-app-architecture.png",
       alt: "Developer reviewing web application architecture and UI components on a laptop screen",
       width: 760,
       height: 760,
     },
     {
-      src: "/images/collab-meeting.webp",
+      src: "/assets/resource/frontend-engineer-analyzing-component-performance.png",
       alt: "Frontend engineer analyzing component performance and code structure",
       width: 760,
       height: 760,
@@ -69,7 +71,7 @@ export const about = {
     "Direct, transparent updates with zero technical posturing or fluff.",
   ],
   image: {
-    src: "/images/about-studio.webp",
+    src: "/assets/resource/senior-frontend-engineer-reviewing-web-app-code.png",
     alt: "Senior frontend engineer reviewing web application code and component architecture",
     width: 900,
     height: 954,

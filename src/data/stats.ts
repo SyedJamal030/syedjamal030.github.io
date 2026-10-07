@@ -18,7 +18,7 @@ export const statsHeading = {
  * leave it empty and the button is hidden.
  */
 export const reel = {
-  image: "/images/reel-poster.webp",
+  image: "/assets/resource/senior-frontend-engineer-full-stack-web-apps.png",
   alt: "Senior frontend engineer demonstrating full-stack web application features",
   width: 1000,
   height: 625,
