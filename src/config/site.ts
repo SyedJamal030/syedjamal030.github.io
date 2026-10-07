@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
       "Available for full-time remote roles and selective contracts",
     // Paste a Formspree / Web3Forms / Netlify endpoint here to make the
     // contact form live. See "Contact form" in the README.
-    formEndpoint: "",
+    formEndpoint: "https://formsubmit.co/7da8d2ea7fc4b73470825e0fbb5ddc72",
   },
 
   social: [
