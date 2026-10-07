@@ -3,7 +3,6 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
-import Artwork from '~/components/art/Artwork.astro';
 import Button from '~/components/Button.astro';
 import Cta from '~/components/home/Cta.astro';
 import siteConfig from '~/config/site';
@@ -16,7 +15,7 @@ export const getStaticPaths = (async () => {
     .sort((a, b) => a.data.order - b.data.order);
 
   return projects.map((project, i) => ({
-    params: { slug: project.id },
+    params: { slug: project.id.replace(/^\d+-/, '') },
     props: {
       project,
       next: projects[(i + 1) % projects.length]!,
@@ -72,8 +71,6 @@ const jsonLd = graph([
               fetchpriority="high"
               decoding="async"
             />
-          ) : d.artwork ? (
-            <Artwork name={d.artwork} label={`${d.title} — project artwork`} />
           ) : null
         }
       </div>

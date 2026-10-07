@@ -13,7 +13,7 @@ interface Props {
 
 const { post, eager = false, class: className, headingLevel: Heading = 'h3' } = Astro.props;
 const { title, description, category, readingTime, pubDate, image } = post.data;
-const href = `/journal/${post.id}/`;
+const href = `/journal/${post.id.replace(/^\d+-/, '')}/`;
 ---
 
 <article class:list={['post', className]}>

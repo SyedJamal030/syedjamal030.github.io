@@ -13,12 +13,6 @@ const imageRef = z.object({
   height: z.number().int().positive(),
 });
 
-/**
- * Case studies.
- *
- * A project shows either a photograph (`image`) or one of the inline SVG
- * artworks registered in `src/components/art/registry.ts` (`artwork`).
- */
 const projects = defineCollection({
   loader: glob({ base: './src/content/projects', pattern: '**/*.md' }),
   schema: z.object({
@@ -33,7 +27,6 @@ const projects = defineCollection({
     /** Meta description for the case-study page. */
     description: z.string(),
     image: imageRef.optional(),
-    artwork: z.enum(['identity', 'dashboard', 'app-screens']).optional(),
     services: z.array(z.string()).default([]),
     technologies: z.array(z.string()).default([]),
     results: z

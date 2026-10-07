@@ -10,8 +10,8 @@ export const hero = {
   nameLines: ["Syed", "Jamal"],
   intro:
     "Senior frontend engineer building web applications that handle complex data, load instantly, and convert users.",
-  ctaLabel: "View projects",
-  ctaHref: "/projects/",
+  ctaLabel: "See the work",
+  ctaHref: "/work/",
   photo: {
     src: "/assets/avatar.png",
     alt: "Syed Jamal, senior frontend engineer",
@@ -42,11 +42,6 @@ export const collaborate = {
   badge: "5+ Years Engineering Experience",
   ctaLabel: "Discuss Your Project",
   ctaHref: "/contact/",
-  /**
-   * The staggered pair beside the copy. Swap these for the bundled SVG
-   * mockups (`BookletMock`, `TabletMock` in src/components/art/) if you would
-   * rather show artwork than photography — see the README.
-   */
   images: [
     {
       src: "/images/collab-team.webp",

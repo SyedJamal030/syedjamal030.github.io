@@ -40,8 +40,8 @@ export const siteConfig: SiteConfig = {
   },
 
   social: [
-    { label: "GitHub", href: "https://github.com/", icon: "github" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/", icon: "linkedin" },
+    { label: "GitHub", href: "http://github.com/syedJamal030/", icon: "github" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/syed-jamal-waheed", icon: "linkedin" },
   ],
 
   about:

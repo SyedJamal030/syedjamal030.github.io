@@ -1,22 +1,21 @@
 ---
-import Icon from '../Icon.astro';
-import Artwork from '../art/Artwork.astro';
-import type { CollectionEntry } from 'astro:content';
+import Icon from "../Icon.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project: CollectionEntry<"projects">;
   /** Cards above the fold can skip lazy loading. */
   eager?: boolean;
   class?: string;
 }
 
 const { project, eager = false, class: className } = Astro.props;
-const { title, excerpt, year, category, image, artwork } = project.data;
+const { title, excerpt, year, category, image } = project.data;
 ---
 
 <a
-  class:list={['work-card', className]}
-  href={`/work/${project.id}/`}
+  class:list={["work-card", className]}
+  href={`/work/${project.id.replace(/^\d+-/, "")}/`}
   data-category={category}
 >
   <div class="work-media">
@@ -28,11 +27,9 @@ const { title, excerpt, year, category, image, artwork } = project.data;
           alt={image.alt}
           width={image.width}
           height={image.height}
-          loading={eager ? 'eager' : 'lazy'}
+          loading={eager ? "eager" : "lazy"}
           decoding="async"
         />
-      ) : artwork ? (
-        <Artwork name={artwork} label={`${title} — project artwork`} />
       ) : null
     }
   </div>

@@ -1,27 +1,26 @@
 {
-  "name": "swp-freelancer-portfolio",
+  "name": "syed-jamal-portfolio",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "type": "module",
-  "description": "SWP Freelancer Portfolio \u2014 a fast, accessible Astro portfolio theme for freelance art directors, designers and small studios.",
+  "description": "Personal portfolio of Syed Jamal, Senior Frontend Engineer and Web Developer, built with Astro and TypeScript.",
   "license": "MIT",
-  "homepage": "https://github.com/Scintillaweb/swp-freelancer-portfolio#readme",
+  "homepage": "https://syedjamal030.github.io",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Scintillaweb/swp-freelancer-portfolio.git"
+    "url": "git+https://github.com/syedJamal030/syedJamal030.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/Scintillaweb/swp-freelancer-portfolio/issues"
+    "url": "https://github.com/syedJamal030/syedJamal030.github.io/issues"
   },
   "keywords": [
+    "senior-frontend-engineer",
+    "web-developer",
+    "react",
+    "nextjs",
+    "typescript",
     "astro",
-    "astro-theme",
-    "astro-template",
-    "portfolio",
-    "freelance",
-    "designer",
-    "blog",
-    "withastro"
+    "portfolio"
   ],
   "engines": {
     "node": ">=22.12.0"

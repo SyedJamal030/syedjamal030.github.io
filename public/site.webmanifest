@@ -1,11 +1,11 @@
 {
-  "name": "SWP Freelancer Portfolio",
-  "short_name": "SWP Portfolio",
-  "description": "A fast, accessible Astro portfolio theme for freelance art directors, designers and small studios.",
+  "name": "Syed Jamal | Senior Frontend Engineer",
+  "short_name": "Syed Jamal",
+  "description": "Portfolio of Syed Jamal, Senior Frontend Engineer specializing in React, Next.js, TypeScript, Astro, and custom web applications.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#c8f14d",
+  "theme_color": "#BFA181",
   "icons": [
     {
       "src": "/favicon.svg",
